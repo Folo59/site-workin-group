@@ -99,17 +99,17 @@ body::before {
 }
 .header__inner {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  height: 66px;
+  height: 88px;
   padding-left: max(24px, env(safe-area-inset-left, 0px));
   padding-right: max(24px, env(safe-area-inset-right, 0px));
 }
-.header__logo img { height: 36px; width: auto; }
+.header__logo img { height: 72px; width: auto; margin-block: -4px; }
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav > ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
 .nav li { position: relative; }
 .nav a, .nav button {
   display: flex; align-items: center; gap: 6px;
-  padding: 10px 12px; font: 500 13px var(--font); color: var(--white);
+  padding: 10px 14px; font: 500 15.5px var(--font); color: var(--white);
   text-decoration: none; background: none; border: 0; cursor: pointer;
 }
 .nav .caret { width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); }
@@ -119,11 +119,11 @@ body::before {
   background: var(--white); border-radius: 10px; box-shadow: var(--shadow);
   opacity: 0; visibility: hidden; transform: translateY(6px); transition: .18s;
 }
-.sub a { color: var(--navy); border-radius: 6px; padding: 9px 12px; }
+.sub a { color: var(--navy); border-radius: 6px; padding: 10px 14px; font-size: 14.5px; }
 .sub a:hover { background: var(--lilac); color: var(--rose); }
 .sub .sub { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 0 0 0 12px; min-width: 0; }
 .nav li:hover > .sub, .nav li:focus-within > .sub { opacity: 1; visibility: visible; transform: none; }
-.header__cta { padding: 11px 28px; }
+.header__cta { padding: 13px 30px; font-size: 14.5px; }
 .burger { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
 .burger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: .2s; }
 
@@ -131,7 +131,7 @@ body::before {
   .burger { display: block; }
   .header__cta { display: none; }
   .nav {
-    position: fixed; inset: calc(66px + env(safe-area-inset-top, 0px)) 0 0 0;
+    position: fixed; inset: calc(88px + env(safe-area-inset-top, 0px)) 0 0 0;
     background: var(--rose); flex-direction: column; align-items: stretch;
     padding: 16px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px));
     overflow-y: auto; transform: translateX(100%); transition: transform .25s;
