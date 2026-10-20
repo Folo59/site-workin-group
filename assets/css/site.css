@@ -539,3 +539,32 @@ html.motion-ready .has-motion .steps.is-in::before { transform: scaleY(1); }
 .is-clickable .stretched::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
 .is-clickable:hover h3, .is-clickable:hover h3 a { color: var(--rose); }
 .is-clickable h3 { transition: color .2s; }
+
+/* Aiguillage employeur / candidat (accueil) */
+.switch { background: var(--lilac); padding-block: 18px; border-bottom: 1px solid var(--line); }
+.switch__grid { display: grid; grid-template-columns: auto minmax(0,1fr) minmax(0,1fr); gap: 16px; align-items: center; }
+.switch__label { font-size: 13px; font-weight: 600; color: var(--navy); }
+.switch__card {
+  display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-radius: var(--radius);
+  text-decoration: none; background: var(--white); box-shadow: var(--shadow); border: 1.5px solid transparent;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s;
+}
+.switch__card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(41,36,92,.14); }
+.switch__card--pro:hover { border-color: var(--navy); }
+.switch__card--cand:hover { border-color: var(--rose); }
+.switch__icon { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; color: var(--white); }
+.switch__card--pro .switch__icon { background: var(--navy); }
+.switch__card--cand .switch__icon { background: var(--rose); }
+.switch__text { display: grid; gap: 2px; min-width: 0; }
+.switch__text strong { font-size: 16px; color: var(--navy); }
+.switch__text span { font-size: 13px; color: var(--muted); }
+.switch__arrow { margin-left: auto; font-size: 20px; color: var(--navy); transition: transform .25s ease; }
+.switch__card--cand .switch__arrow { color: var(--rose); }
+.switch__card:hover .switch__arrow { transform: translateX(5px); }
+@media (max-width: 760px) {
+  .switch__grid { grid-template-columns: minmax(0,1fr); gap: 10px; }
+  .switch__label { margin-bottom: -2px; }
+  .switch__card { padding: 12px 16px; }
+}
+html.motion-ready .has-motion .switch__card { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+html.motion-ready .has-motion .switch__card--cand { animation-delay: .1s; }

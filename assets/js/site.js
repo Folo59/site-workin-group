@@ -191,3 +191,17 @@
     main.classList.add('stretched');
   });
 })();
+
+// Mesure des clics : aiguillage employeur / candidat, offres d'emploi, formulaire (si cookies acceptés)
+(function () {
+  function track(name, params) { if (window.gtag) gtag('event', name, params || {}); }
+  document.querySelectorAll('[data-track]').forEach(function (a) {
+    a.addEventListener('click', function () { track('aiguillage', { profil: a.getAttribute('data-track') }); });
+  });
+  document.querySelectorAll('a[href*="careers.marvins.ai"]').forEach(function (a) {
+    a.addEventListener('click', function () { track('clic_offres_emploi', { page: location.pathname }); });
+  });
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
+    a.addEventListener('click', function () { track('clic_telephone', { page: location.pathname }); });
+  });
+})();
