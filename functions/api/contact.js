@@ -1,48 +1,58 @@
-// Cloudflare Pages Function : reçoit le formulaire « Formulaire entreprises »
-// et l'envoie dans HubSpot (API Forms, sans clé secrète).
-// Variables à définir dans Cloudflare Pages > Settings > Environment variables :
-//   HUBSPOT_PORTAL_ID  (ID du compte HubSpot)
-//   HUBSPOT_FORM_GUID  (ID du formulaire HubSpot qui reçoit les demandes)
+// Cloudflare Pages Function : reçoit le « Formulaire entreprises » et l'envoie par email.
+// Envoi via Resend (resend.com). Variable secrète à définir dans Cloudflare Pages
+// > Settings > Variables and Secrets :
+//   RESEND_API_KEY   (clé API Resend)
+// Variables facultatives :
+//   CONTACT_TO       (destinataire, par défaut loic@workin-group.com)
+//   CONTACT_FROM     (expéditeur, par défaut onboarding@resend.dev tant que le domaine n'est pas vérifié)
 
-const FIELDS = {
-  entreprise: 'company',
-  nom: 'firstname',
-  fonction: 'jobtitle',
-  ville: 'city',
-  email: 'email',
-  telephone: 'phone',
-  poste: 'poste_a_pourvoir',
-  nombre_postes: 'nombre_de_postes',
-  entree_en_poste: 'entree_en_poste_souhaitee',
-  service: 'service_envisage',
-  besoin: 'message',
+const LABELS = {
+  entreprise: 'Entreprise',
+  nom: 'Nom et prénom',
+  fonction: 'Fonction',
+  ville: "Ville de l'entreprise",
+  email: 'Courriel',
+  telephone: 'Téléphone',
+  poste: 'Poste à pourvoir',
+  nombre_postes: 'Nombre de postes',
+  entree_en_poste: 'Entrée en poste souhaitée',
+  service: 'Service envisagé',
+  besoin: 'Besoin',
 };
+
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 export async function onRequestPost({ request, env }) {
   const data = await request.formData();
-  if (data.get('site_web')) return Response.json({ ok: true }); // robot (champ piège rempli)
-  if (!data.get('email') || !data.get('consentement')) {
-    return Response.json({ ok: false, error: 'missing' }, { status: 400 });
+  if (data.get('site_web')) return Response.json({ ok: true }); // robot : champ piège rempli
+  const email = String(data.get('email') || '').trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !data.get('consentement')) {
+    return Response.json({ ok: false, error: 'invalid' }, { status: 400 });
   }
-  if (!env.HUBSPOT_PORTAL_ID || !env.HUBSPOT_FORM_GUID) {
+  if (!env.RESEND_API_KEY) {
     return Response.json({ ok: false, error: 'not_configured' }, { status: 503 });
   }
-  const fields = Object.entries(FIELDS)
-    .filter(([k]) => data.get(k))
-    .map(([k, name]) => ({ objectTypeId: '0-1', name, value: String(data.get(k)).slice(0, 5000) }));
-  const body = {
-    fields,
-    context: {
-      pageUri: request.headers.get('referer') || 'https://workin-group.com/contact/',
-      pageName: 'Contact entreprises',
-      ipAddress: request.headers.get('cf-connecting-ip') || undefined,
-    },
-    legalConsentOptions: {
-      consent: { consentToProcess: true, text: "J'accepte que Workin Group utilise ces informations pour traiter ma demande." },
-    },
-  };
-  const url = `https://api.hsforms.com/submissions/v3/integration/submit/${env.HUBSPOT_PORTAL_ID}/${env.HUBSPOT_FORM_GUID}`;
-  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-  if (!r.ok) return Response.json({ ok: false, error: 'hubspot', status: r.status }, { status: 502 });
+
+  const get = (k) => String(data.get(k) || '').slice(0, 5000).trim();
+  const rows = Object.entries(LABELS)
+    .filter(([k]) => get(k))
+    .map(([k, label]) => `<tr><td style="padding:6px 12px 6px 0;color:#6b6890;vertical-align:top;white-space:nowrap">${label}</td><td style="padding:6px 0;color:#29245c">${esc(get(k)).replace(/\n/g, '<br>')}</td></tr>`)
+    .join('');
+  const text = Object.entries(LABELS).filter(([k]) => get(k)).map(([k, l]) => `${l} : ${get(k)}`).join('\n');
+  const subject = `Nouvelle demande entreprise : ${get('entreprise') || get('nom')}${get('poste') ? ' · ' + get('poste') : ''}`;
+
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: `Site Workin Group <${env.CONTACT_FROM || 'onboarding@resend.dev'}>`,
+      to: [env.CONTACT_TO || 'loic@workin-group.com'],
+      reply_to: email,
+      subject: subject.slice(0, 180),
+      html: `<div style="font-family:Arial,sans-serif;font-size:14px"><p style="color:#ea346f;font-weight:bold">Demande reçue via le formulaire de workin-group.com</p><table>${rows}</table><p style="color:#6b6890;font-size:12px">Répondez directement à ce mail pour écrire au prospect.</p></div>`,
+      text,
+    }),
+  });
+  if (!r.ok) return Response.json({ ok: false, error: 'send_failed', status: r.status }, { status: 502 });
   return Response.json({ ok: true });
 }
