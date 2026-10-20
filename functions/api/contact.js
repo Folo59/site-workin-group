@@ -5,6 +5,8 @@
 // Variables facultatives :
 //   CONTACT_TO       (destinataire, par défaut loic@workin-group.com)
 //   CONTACT_FROM     (expéditeur, par défaut onboarding@resend.dev tant que le domaine n'est pas vérifié)
+//   CONTACT_COPY     (copie lue chaque matin pour créer la fiche dans Marvin, par défaut spyckerelleloic@gmail.com ;
+//                     ne part qu'une fois le domaine workin-group.com vérifié dans Resend)
 
 const LABELS = {
   entreprise: 'Entreprise',
@@ -41,18 +43,21 @@ export async function onRequestPost({ request, env }) {
   const text = Object.entries(LABELS).filter(([k]) => get(k)).map(([k, l]) => `${l} : ${get(k)}`).join('\n');
   const subject = `Nouvelle demande entreprise : ${get('entreprise') || get('nom')}${get('poste') ? ' · ' + get('poste') : ''}`;
 
-  const r = await fetch('https://api.resend.com/emails', {
+  const send = (to) => fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: `Site Workin Group <${env.CONTACT_FROM || 'onboarding@resend.dev'}>`,
-      to: [env.CONTACT_TO || 'loic@workin-group.com'],
+      to: [to],
       reply_to: email,
       subject: subject.slice(0, 180),
       html: `<div style="font-family:Arial,sans-serif;font-size:14px"><p style="color:#ea346f;font-weight:bold">Demande reçue via le formulaire de workin-group.com</p><table>${rows}</table><p style="color:#6b6890;font-size:12px">Répondez directement à ce mail pour écrire au prospect.</p></div>`,
-      text,
+      text: 'Demande reçue via le formulaire de workin-group.com\n\n' + text,
     }),
   });
+  const r = await send(env.CONTACT_TO || 'loic@workin-group.com');
+  // copie pour l'automatisme Marvin : sans effet tant que le domaine n'est pas vérifié
+  try { await send(env.CONTACT_COPY || 'spyckerelleloic@gmail.com'); } catch (e) {}
   if (!r.ok) return Response.json({ ok: false, error: 'send_failed', status: r.status }, { status: 502 });
   return Response.json({ ok: true });
 }
