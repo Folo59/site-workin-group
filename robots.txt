@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://workin-group.com/sitemap.xml
