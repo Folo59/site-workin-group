@@ -9,11 +9,14 @@
       burger.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    nav.querySelectorAll('.has-sub > button').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var li = btn.parentElement;
+    // sur téléphone, le premier appui ouvre le sous-menu au lieu de changer de page
+    nav.querySelectorAll('.has-sub > .nav__top').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (window.innerWidth > 960) return;
+        e.preventDefault();
+        var li = a.parentElement;
         var open = li.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open);
+        a.setAttribute('aria-expanded', open);
       });
     });
   }
@@ -99,17 +102,19 @@
   }
   var root = document.querySelector('.has-motion');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!root || reduce || !('IntersectionObserver' in window)) return;
+  if (!root || reduce || !window.requestAnimationFrame) return;
 
   var groups = [
     '.section-head', '.section .wrap > .eyebrow', '.section .wrap > h2', '.section .wrap > .lead',
     '.stat', '.compare__card', '.cards-2 > .card', '.pledge', '.step', '.carousel__track > .sector',
-    '.permit', '.review', '.candidates', '.faq details', '.final .btn-row', '.final p', '.reviews-foot', '.carousel-foot'
+    '.permit', '.review', '.candidates', '.faq details', '.final .btn-row', '.final p', '.reviews-foot', '.carousel-foot',
+    '.grid > .box', '.split__media', '.split .prose > *', '.stack > .prose > *', '.stack > .checklist', '.stack > .chips',
+    '.toc', '.quote', '.sources', '.logo-grid', '.contact-grid > *', '.hero--plain .hero__text'
   ];
   var items = [];
   groups.forEach(function (sel) {
     root.querySelectorAll(sel).forEach(function (el) {
-      if (el.closest('.hero') || el.hasAttribute('data-reveal')) return;
+      if (el.closest('.hero') || el.hasAttribute('data-reveal') || el.closest('[data-reveal]')) return;
       var sib = Array.prototype.indexOf.call(el.parentNode.children, el);
       el.setAttribute('data-reveal', '');
       el.style.setProperty('--d', Math.min(sib, 6));
@@ -122,8 +127,10 @@
 
   // compteurs des chiffres clés
   function countUp(el) {
-    var target = parseInt(el.textContent.replace(/\D/g, ''), 10);
-    if (!target || el.dataset.counted) return;
+    var raw = el.textContent.trim();
+    if (!/^\d{1,4}$/.test(raw) || el.dataset.counted) return;
+    var target = parseInt(raw, 10);
+    if (!target) return;
     el.dataset.counted = '1';
     var from = target > 1000 ? target - 25 : 0, start = null, dur = 1400;
     function tick(t) {
@@ -135,17 +142,52 @@
     requestAnimationFrame(tick);
   }
 
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (!en.isIntersecting) return;
-      en.target.classList.add('is-in');
-      var n = en.target.matches('.stat') && en.target.querySelector('strong');
+  // dans les rangées qui défilent horizontalement, on suit la rangée entière
+  var ROWS = '.carousel__track, .cards-2, .pledges, .grid, .stats, .reviews, .compare';
+  var watched = [];
+  items.forEach(function (el) {
+    var row = el.parentElement && el.parentElement.matches(ROWS) ? el.parentElement : null;
+    var target = row || el;
+    if (watched.indexOf(target) === -1) watched.push(target);
+  });
+
+  function reveal(target) {
+    var els = target.hasAttribute('data-reveal') ? [target] : Array.prototype.slice.call(target.children).filter(function (c) { return c.hasAttribute('data-reveal'); });
+    els.forEach(function (el) {
+      el.classList.add('is-in');
+      var n = el.matches('.stat') && el.querySelector('strong');
       if (n) countUp(n);
-      io.unobserve(en.target);
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-  items.forEach(function (el) { io.observe(el); });
+  }
+  // tout ce qui est passé au-dessus du bas de l'écran apparaît (même après un défilement rapide)
+  var ticking = false;
+  function check() {
+    ticking = false;
+    var limit = window.innerHeight - 30;
+    for (var i = watched.length - 1; i >= 0; i--) {
+      if (watched[i].getBoundingClientRect().top < limit) { reveal(watched[i]); watched.splice(i, 1); }
+    }
+    if (!watched.length) { window.removeEventListener('scroll', onScrollReveal); window.removeEventListener('resize', onScrollReveal); }
+  }
+  function onScrollReveal() { if (!ticking) { ticking = true; requestAnimationFrame(check); } }
+  window.addEventListener('scroll', onScrollReveal, { passive: true });
+  window.addEventListener('resize', onScrollReveal);
+  requestAnimationFrame(check);
 
   // filet de sécurité : tout s'affiche même si un élément n'a pas été détecté
   setTimeout(function () { items.forEach(function (el) { el.classList.add('is-in'); }); }, 6000);
+})();
+
+// Cartes entièrement cliquables quand elles ne mènent qu'à une seule page
+(function () {
+  document.querySelectorAll('.card, .box, .sector, .review').forEach(function (card) {
+    var links = card.querySelectorAll('a[href]');
+    var hrefs = {};
+    links.forEach(function (a) { hrefs[a.getAttribute('href')] = a; });
+    var keys = Object.keys(hrefs);
+    if (keys.length !== 1) return;
+    var main = card.querySelector('h3 a') || hrefs[keys[0]];
+    card.classList.add('is-clickable');
+    main.classList.add('stretched');
+  });
 })();

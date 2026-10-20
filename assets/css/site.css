@@ -20,6 +20,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
@@ -117,12 +118,17 @@ body::before {
   position: absolute; top: 100%; left: 0; min-width: 260px;
   list-style: none; margin: 0; padding: 8px;
   background: var(--white); border-radius: 10px; box-shadow: var(--shadow);
-  opacity: 0; visibility: hidden; transform: translateY(6px); transition: .18s;
+  opacity: 0; visibility: hidden; transform: translateY(6px); pointer-events: none;
+  transition: opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
 }
 .sub a { color: var(--navy); border-radius: 6px; padding: 10px 14px; font-size: 14.5px; }
 .sub a:hover { background: var(--lilac); color: var(--rose); }
 .sub .sub { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; padding: 0 0 0 12px; min-width: 0; }
-.nav li:hover > .sub, .nav li:focus-within > .sub { opacity: 1; visibility: visible; transform: none; }
+@media (hover: hover) and (min-width: 961px) {
+  .nav li:hover > .sub { opacity: 1; visibility: visible; transform: none; pointer-events: auto; transition: opacity .18s ease .12s, transform .18s ease .12s, visibility 0s linear .12s; }
+}
+.nav li:has(> a:focus-visible) > .sub, .nav li.is-open > .sub { opacity: 1; visibility: visible; transform: none; pointer-events: auto; transition-delay: 0s; }
+.nav .sub .sub { pointer-events: auto; }
 .header__cta { padding: 13px 30px; font-size: 14.5px; }
 .burger { display: none; background: none; border: 0; padding: 8px; cursor: pointer; }
 .burger span { display: block; width: 24px; height: 2px; background: var(--white); margin: 5px 0; transition: .2s; }
@@ -527,3 +533,9 @@ html.motion-ready .has-motion .steps.is-in::before { transform: scaleY(1); }
 }
 .cookies:not([hidden]) { animation: rise .6s .8s cubic-bezier(.2,.7,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { .cookies:not([hidden]) { animation: none; } }
+
+/* cartes entièrement cliquables */
+.is-clickable { position: relative; cursor: pointer; }
+.is-clickable .stretched::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.is-clickable:hover h3, .is-clickable:hover h3 a { color: var(--rose); }
+.is-clickable h3 { transition: color .2s; }
