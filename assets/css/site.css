@@ -473,3 +473,57 @@ body::before {
 .chips li { background: var(--white); border: 1px solid var(--line); color: var(--navy); border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 500; }
 .section:not(.section--lilac) .chips li { background: var(--lilac); border-color: transparent; }
 .section--navy .chips li { background: rgba(255,255,255,.1); color: var(--white); border-color: transparent; }
+
+/* ===== Mouvements (discrets) ===== */
+.header { transition: box-shadow .3s ease; }
+.header.is-scrolled { box-shadow: 0 6px 24px rgba(41, 36, 92, .18); }
+
+/* survol des cartes */
+.card, .sector, .pledge, .review, .box, .compare__card { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.card:hover, .sector:hover, .pledge:hover, .review:hover, .box:hover { transform: translateY(-5px); box-shadow: 0 14px 34px rgba(41, 36, 92, .13); }
+.card__img, .box__photo { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.card { overflow: hidden; }
+.card:hover .card__img, .box--media:hover .box__photo { transform: scale(1.04); }
+.sector img, .box__illu, .box__picto { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.sector:hover img, .box:hover .box__illu, .box:hover .box__picto { transform: translateY(-4px) rotate(-1.5deg); }
+.link-arrow { display: inline-block; transition: transform .25s ease, color .2s; }
+.link-arrow:hover { transform: translateX(4px); text-decoration: none; }
+.btn--rose { box-shadow: 0 0 0 rgba(234, 52, 111, 0); }
+.btn--rose:hover { box-shadow: 0 8px 22px rgba(234, 52, 111, .35); }
+.step__num { transition: transform .3s ease, box-shadow .3s ease; }
+.step:hover .step__num { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(234, 52, 111, .15); }
+
+/* apparition au défilement (activée par le script, donc la page reste lisible sans lui) */
+html.motion-ready [data-reveal] {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(var(--d, 0) * 90ms);
+}
+html.motion-ready [data-reveal].is-in { opacity: 1; transform: none; }
+html.motion-ready [data-reveal].is-in.card:hover,
+html.motion-ready [data-reveal].is-in.sector:hover,
+html.motion-ready [data-reveal].is-in.pledge:hover,
+html.motion-ready [data-reveal].is-in.review:hover,
+html.motion-ready [data-reveal].is-in.box:hover { transform: translateY(-5px); transition-delay: 0s; }
+
+/* en-tête de la page d'accueil : entrée en cascade + illustration qui flotte */
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes float { from { transform: translateY(0); } to { transform: translateY(-12px); } }
+@keyframes pop { 0% { transform: scale(.4); opacity: 0; } 70% { transform: scale(1.12); opacity: 1; } 100% { transform: scale(1); } }
+html.motion-ready .has-motion .hero__text > * { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+html.motion-ready .has-motion .hero__text > :nth-child(2) { animation-delay: .08s; }
+html.motion-ready .has-motion .hero__text > :nth-child(3) { animation-delay: .18s; }
+html.motion-ready .has-motion .hero__text > :nth-child(4) { animation-delay: .26s; }
+html.motion-ready .has-motion .hero__text > :nth-child(5) { animation-delay: .36s; }
+html.motion-ready .has-motion .hero__text > :nth-child(6) { animation-delay: .46s; }
+html.motion-ready .has-motion .hero__img { animation: rise 1s .2s cubic-bezier(.2,.7,.2,1) both, float 5s 1.2s ease-in-out infinite alternate; }
+html.motion-ready .has-motion .compare__card.is-in .compare__badge { animation: pop .6s .25s cubic-bezier(.2,.7,.2,1) both; }
+html.motion-ready .has-motion .steps::before { transform-origin: top; transform: scaleY(0); transition: transform 1.6s cubic-bezier(.2,.7,.2,1); }
+html.motion-ready .has-motion .steps.is-in::before { transform: scaleY(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  html.motion-ready [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .card:hover, .sector:hover, .pledge:hover, .review:hover, .box:hover { transform: none; }
+}
+.cookies:not([hidden]) { animation: rise .6s .8s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .cookies:not([hidden]) { animation: none; } }
