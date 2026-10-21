@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/assets/css/site.css?v=fcfdc27d">
+<link rel="stylesheet" href="/assets/css/site.css?v=7a6428d6">
 
 <script type="application/ld+json">
 {
@@ -126,8 +126,7 @@
       <a class="btn btn--rose nav__mobile-cta" href="https://careers.marvins.ai/workin-group/jobs" target="_blank" rel="noopener">Voir les offres d'emploi</a>
     </nav>
 
-    <a class="btn btn--ghost-light header__cta header__cta--cand" href="https://careers.marvins.ai/workin-group/jobs" target="_blank" rel="noopener">Offres d'emploi</a>
-    <a class="btn btn--navy header__cta" href="/contact/">Recruter avec Workin</a>
+    <div class="header__actions"><a class="btn btn--ghost-light header__cta header__cta--cand" href="https://careers.marvins.ai/workin-group/jobs" target="_blank" rel="noopener">Offres d'emploi</a><a class="btn btn--navy header__cta" href="/contact/">Recruter avec Workin</a></div>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -285,53 +284,14 @@
   </div>
 </section>
 
-<!-- ============ ENGAGEMENTS ============ -->
+<!-- ============ MÉTHODE + ENGAGEMENTS ============ -->
 <section class="section section--lilac">
-  <div class="wrap">
-    <span class="eyebrow">Ce qui change chez Workin</span>
-    <h2>Nos engagements sur chaque mandat</h2>
-    <p class="lead">Ce ne sont pas des promesses commerciales, mais le cadre de travail appliqué à tous les dossiers.</p>
-    <p class="swipe-hint">Faites glisser pour voir la suite</p>
-    <div class="pledges">
-      <article class="pledge">
-        <span class="pledge__num">01</span>
-        <span class="pledge__tag">Un interlocuteur</span>
-        <h3>Un chargé de projet attitré</h3>
-        <p>Un interlocuteur nommé dès la signature, qui connaît votre dossier et reste le même du brief à la fin de la période d’essai.</p>
-        <span class="pledge__foot">Le même du début à la fin</span>
-      </article>
-      <article class="pledge">
-        <span class="pledge__num">02</span>
-        <span class="pledge__tag">Chaque semaine</span>
-        <h3>Un compte rendu écrit</h3>
-        <p>Candidats vus, candidats écartés et pourquoi, où en est le dossier d’immigration, ce qui est attendu de vous. Sans avoir à relancer.</p>
-        <span class="pledge__foot">Sans relance de votre part</span>
-      </article>
-      <article class="pledge">
-        <span class="pledge__num">03</span>
-        <span class="pledge__tag">Des outils</span>
-        <h3>Un ATS partagé</h3>
-        <p>Multidiffusion sur une douzaine de jobboards et outils d’aide au tri : des semaines gagnées sur le sourcing.</p>
-        <span class="pledge__foot">Douze jobboards d’un coup</span>
-      </article>
-      <article class="pledge">
-        <span class="pledge__num">04</span>
-        <span class="pledge__tag">En cas d’échec</span>
-        <h3>Une garantie écrite au mandat</h3>
-        <p>Si le recrutement ne tient pas, nous relançons la recherche selon les conditions prévues. Le cadre exact est écrit avant de commencer.</p>
-        <span class="pledge__foot">Conditions connues d’avance</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ MÉTHODE ============ -->
-<section class="section">
   <div class="wrap">
     <span class="eyebrow">Notre méthode</span>
     <h2>Les étapes d'un recrutement avec Workin</h2>
     <p class="lead">Le déroulé d’un recrutement international, avec le temps que cela demande réellement à votre équipe. En chasse de tête locale, le calendrier s’arrête à l’étape 4 et tient en quatre à six semaines.</p>
-    <ol class="steps">
+    <div class="method">
+      <ol class="steps">
       <li class="step"><span class="step__num">01</span><div><h3>Brief</h3><span class="step__when">J+0 · vous, 1 h</span><p>Une heure pour cadrer le poste, la rémunération, les contraintes et la date d’arrivée visée.</p></div></li>
       <li class="step"><span class="step__num">02</span><div><h3>Premiers CV qualifiés</h3><span class="step__when">J+15 · Workin</span><p>Une liste courte, déjà filtrée sur les équivalences de diplômes et la mobilité réelle.</p></div></li>
       <li class="step"><span class="step__num">03</span><div><h3>Entretiens</h3><span class="step__when">J+25 · vous, 3 à 5 h</span><p>Vous rencontrez les candidats en visioconférence. Nous organisons, cadrons et débriefons.</p></div></li>
@@ -339,6 +299,12 @@
       <li class="step"><span class="step__num">05</span><div><h3>Permis de travail</h3><span class="step__when">J+150 · Workin</span><p>EIMT, CAQ, permis fermé. Nos juristes pilotent, vous recevez un point écrit chaque semaine.</p></div></li>
       <li class="step"><span class="step__num">06</span><div><h3>Arrivée et intégration</h3><span class="step__when">J+180 · vous, 2 h</span><p>Logement, installation, premiers jours. Point de suivi à 30 et à 90 jours.</p></div></li>
     </ol>
+      <aside class="method__aside" aria-labelledby="engagements-titre">
+        <span class="pledge__tag">Inclus dans chaque mandat</span>
+        <h3 id="engagements-titre" class="method__title">Nos engagements sur chaque mandat</h3>
+        <ul class="method__list"><li><span class="method__num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Un chargé de projet attitré</h3><p>Nommé dès la signature, il reste le même du brief à la fin de la période d’essai.</p></div></li><li><span class="method__num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Un compte rendu écrit chaque semaine</h3><p>Candidats vus et écartés, avancement du permis, ce qui est attendu de vous. Sans avoir à relancer.</p></div></li><li><span class="method__num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Un ATS partagé</h3><p>Vous suivez les candidatures en direct. Multidiffusion sur une douzaine de jobboards.</p></div></li><li><span class="method__num"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><h3>Une garantie écrite au mandat</h3><p>Si le recrutement ne tient pas, la recherche est relancée selon des conditions connues d’avance.</p></div></li></ul>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -631,6 +597,6 @@
   <button class="btn btn--ghost" type="button" data-consent="no">Refuser</button>
 </div>
 
-<script src="/assets/js/site.js?v=fcfdc27d" defer></script>
+<script src="/assets/js/site.js?v=7a6428d6" defer></script>
 </body>
 </html>
