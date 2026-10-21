@@ -740,7 +740,7 @@ body { font-size: 15.5px; }
 .site-footer__top { display: grid; grid-template-columns: minmax(0,1.75fr) repeat(3, minmax(0,1fr)) minmax(0,1.1fr); gap: 40px; padding-block: 64px 44px; }
 .site-footer__brand img { width: 150px; }
 .site-footer__brand p { margin-top: 16px; max-width: 34ch; line-height: 1.6; }
-.site-footer h3 { color: var(--white); font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 16px; }
+.site-footer h3, .site-footer__title { color: var(--white); font-size: 13px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 16px; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .site-footer__badge { display: flex; gap: 12px; align-items: center; margin-top: 20px; padding: 12px 14px; border: 1px solid rgba(255,255,255,.15); border-radius: 12px; font-size: 12.5px; max-width: 290px; }
 .site-footer__badge strong { color: var(--white); display: block; font-size: 13px; }
@@ -794,3 +794,28 @@ html, body { overflow-x: clip; }
 @media (max-width: 1080px) { .choose { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 560px) { .choose { grid-template-columns: 1fr; } }
 .leader--page { margin: 0; }
+
+/* Bloc permis CNESST (accueil) */
+.permit { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); gap: 56px; align-items: center; border: 0; padding: 0; text-align: left; }
+.permit h2 { max-width: none; margin: 0; }
+.permit p { max-width: 64ch; margin: 14px 0 0; font-size: 15px; }
+.permit .btn-row { margin-top: 26px; align-items: center; }
+.permit .btn { margin-top: 0; }
+.permit__card { background: var(--lilac); border-radius: 22px; padding: 32px; box-shadow: var(--shadow); }
+.permit__seal { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid rgba(41,36,92,.12); color: var(--rose); }
+.permit__seal strong { display: block; color: var(--navy); font-size: 18px; }
+.permit__seal span { color: var(--navy); font-size: 15px; letter-spacing: .5px; }
+.permit__card .checklist { margin: 0; }
+@media (max-width: 860px) { .permit { grid-template-columns: minmax(0,1fr); gap: 28px; } }
+
+/* En-tête : bouton candidats */
+.header__cta--cand { margin-right: 10px; }
+.header__cta--cand:hover { color: var(--rose); }
+.header__cta { white-space: nowrap; }
+.nav__top, .nav > ul > li > a { white-space: nowrap; }
+@media (max-width: 1240px) and (min-width: 961px) { .header__cta { padding: 12px 18px; font-size: 13.5px; } }
+@media (max-width: 1180px) { .header__cta--cand { display: none; } }
+
+/* Actualités : double entrée plus basse */
+.duo--compact .duo__panel { min-height: 300px; }
+.site-footer__title { font-family: inherit; font-weight: 700; }
