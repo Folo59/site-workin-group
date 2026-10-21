@@ -5,6 +5,8 @@
   --rose: #ea346f;
   --rose-dark: #d02a60;
   --rose-soft: #fde8ef;
+  --sand: #f4ead9;
+  --sand-deep: #e8d3ad;
   --navy: #29245c;
   --navy-deep: #221e4e;
   --lilac: #f5f4fa;
@@ -574,7 +576,7 @@ html.motion-ready .has-motion .switch__card--cand { animation-delay: .1s; }
 /* accessibilité : texte rose plus foncé sur fond clair (contraste AA) */
 :root { --rose-text: var(--rose); }
 .eyebrow, .hero__badges, .link-arrow, .stat strong, .pledge__num, .pledge__foot, .step__when, .review__stars, .faq summary::before, .faq details[open] summary { color: var(--rose-text); }
-.section--navy .eyebrow { color: #ff8fb2; }
+.section--navy .eyebrow { color: var(--sand-deep); }
 .btn--rose { background: var(--rose); }
 .btn--rose:hover { background: var(--rose-dark); }
 
@@ -658,7 +660,7 @@ html.motion-ready .has-motion .switch__card--cand { animation-delay: .1s; }
 .photo-band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(41,36,92,.92) 0%, rgba(41,36,92,.7) 45%, rgba(41,36,92,.15) 100%); }
 .photo-band .wrap { padding-block: 90px; }
 .photo-band__text { max-width: 560px; }
-.photo-band .eyebrow { color: #ff8fb2; }
+.photo-band .eyebrow { color: var(--sand-deep); }
 .photo-band h2 { color: var(--white); font-size: clamp(26px, 3.2vw, 38px); }
 .photo-band p { margin-top: 14px; font-size: 15px; color: rgba(255,255,255,.9); }
 .photo-band .btn-row { margin-top: 26px; }
@@ -760,17 +762,17 @@ html, body { overflow-x: clip; }
 
 /* Bloc « leader du permis Jeune Professionnel » */
 .leader { background: var(--navy); color: #e3e1f3; position: relative; overflow: hidden; }
-.leader::after { content: ""; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border-radius: 50%; background: var(--rose); opacity: .18; }
+.leader::after { content: ""; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border-radius: 50%; background: var(--sand-deep); opacity: .12; }
 .leader .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 48px; align-items: center; padding-block: 72px; }
 .leader__badge { display: inline-flex; align-items: center; gap: 8px; background: var(--rose); color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; padding: 8px 14px; border-radius: 999px; }
 .leader h2 { color: var(--white); font-size: clamp(26px, 3.4vw, 40px); margin-top: 16px; }
-.leader h2 em { font-style: normal; color: #ff8fb2; }
+.leader h2 em { font-style: normal; color: var(--sand-deep); }
 .leader p { margin-top: 14px; font-size: 15.5px; max-width: 60ch; }
 .leader .btn-row { margin-top: 24px; }
 .leader__sectors { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
 .leader__sector { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14); border-radius: 16px; padding: 18px; display: grid; gap: 6px; transition: background .3s, transform .3s; }
 .leader__sector:hover { background: rgba(255,255,255,.12); transform: translateY(-3px); }
-.leader__sector svg { color: #ff8fb2; }
+.leader__sector svg { color: var(--sand-deep); }
 .leader__sector strong { color: var(--white); font-size: 16px; }
 .leader__sector span { font-size: 13px; }
 .leader__facts { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; border-top: 1px solid rgba(255,255,255,.14); padding-top: 26px; }
@@ -897,3 +899,22 @@ html, body { overflow-x: clip; }
 .site-footer__bottom .socials { margin: 0; gap: 10px; }
 .site-footer__bottom .socials a { width: 34px; height: 34px; }
 @media (max-width: 640px) { .site-footer__bottom { flex-direction: column; align-items: flex-start; } }
+
+/* Teinte sable : carte candidats et bandeau candidats */
+.duo__panel--cand { color: var(--navy); }
+.duo__panel--cand::before { background: linear-gradient(180deg, rgba(244,234,217,0) 18%, rgba(244,234,217,.88) 52%, rgba(244,234,217,.98) 80%); }
+.duo__panel--cand h2 { color: var(--navy); }
+.duo__panel--cand p { color: var(--text); }
+.duo__panel--cand .duo__tag { background: var(--navy); color: var(--white); backdrop-filter: none; }
+.duo__panel--cand .duo__cta { background: var(--navy); color: var(--white); }
+
+.photo-band { color: var(--navy); }
+.photo-band::before { background: linear-gradient(90deg, rgba(244,234,217,.97) 0%, rgba(244,234,217,.88) 42%, rgba(244,234,217,.15) 100%); }
+.photo-band .eyebrow { color: var(--rose); }
+.photo-band h2 { color: var(--navy); }
+.photo-band p { color: var(--text); }
+.photo-band .btn--white { background: var(--navy); color: var(--white); }
+.photo-band .btn--white:hover { background: var(--navy-deep); }
+.photo-band .btn--ghost-light { border-color: var(--navy); color: var(--navy); }
+.photo-band .btn--ghost-light:hover { background: var(--navy); color: var(--white); }
+@media (max-width: 760px) { .photo-band::before { background: linear-gradient(180deg, rgba(244,234,217,.93) 0%, rgba(244,234,217,.84) 100%); } }
