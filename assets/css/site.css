@@ -698,3 +698,4 @@ html.motion-ready .has-motion .switch__card--cand { animation-delay: .1s; }
 .notice a { color: var(--rose-text); }
 .notices { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
 @media (max-width: 760px) { .notices { grid-template-columns: minmax(0,1fr); } }
+[id] { scroll-margin-top: 100px; }
