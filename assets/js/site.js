@@ -205,3 +205,31 @@
     a.addEventListener('click', function () { track('clic_telephone', { page: location.pathname }); });
   });
 })();
+
+// Contact : choix entreprise / candidat, agenda Calendly
+(function () {
+  var tabs = document.querySelectorAll('.who__btn');
+  if (!tabs.length) return;
+  function show(who) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-who') === who;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (window.gtag) gtag('event', 'aiguillage_contact', { profil: who });
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.getAttribute('data-who')); }); });
+  if (location.hash === '#candidat') show('cand');
+  // Agenda : il suffit de renseigner data-calendly="https://calendly.com/…" dans la page
+  var cal = document.querySelector('.booking__cal[data-calendly]');
+  var url = cal && cal.getAttribute('data-calendly');
+  if (cal && url) {
+    var f = document.createElement('iframe');
+    f.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'hide_gdpr_banner=1&primary_color=ea346f';
+    f.title = 'Prendre rendez-vous avec Workin Group';
+    f.loading = 'lazy';
+    cal.innerHTML = '';
+    cal.appendChild(f);
+  }
+})();
