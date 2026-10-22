@@ -1065,3 +1065,10 @@ html, body { overflow-x: clip; }
 .legal a { color: var(--rose); }
 .legal code { background: var(--lilac); padding: 2px 6px; border-radius: 6px; font-size: 13px; }
 .legal__date { margin-top: 30px !important; color: var(--muted); font-size: 14px; }
+
+/* Menu mobile : sous-menus fermés par défaut, cliquables une fois ouverts */
+@media (max-width: 960px) {
+  .nav .sub, .nav .sub--mega { display: none; pointer-events: auto; }
+  .nav li.is-open > .sub { display: block; }
+  .nav li.is-open > .sub--mega { display: grid; }
+}
