@@ -1072,3 +1072,27 @@ html, body { overflow-x: clip; }
   .nav li.is-open > .sub { display: block; }
   .nav li.is-open > .sub--mega { display: grid; }
 }
+
+/* ===== Menu mobile lisible : tiroir blanc, niveaux bien distincts ===== */
+@media (max-width: 960px) {
+  .nav { background: var(--white); padding: 8px 20px 32px; box-shadow: inset 0 1px 0 rgba(41,36,92,.08); }
+  .nav > ul { gap: 0; }
+  .nav > ul > li { border-bottom: 1px solid var(--line); }
+  .nav > ul > li > a, .nav .nav__top { color: var(--navy) !important; font-size: 19px; font-weight: 700; padding: 18px 2px; min-height: 56px; box-sizing: border-box; }
+  .nav .caret { width: 9px; height: 9px; color: var(--rose); border-width: 2.5px; transition: transform .2s; }
+  .nav li.is-open > .nav__top .caret { transform: rotate(-135deg) translateY(-1px); }
+  .nav li.is-open > .nav__top { color: var(--rose) !important; }
+  .nav .sub, .nav .sub--mega { background: var(--lilac); border-radius: 16px; margin: 0 0 16px; padding: 8px 6px; }
+  .nav .sub a, .nav .sub--mega a { color: var(--navy) !important; font-size: 16px !important; font-weight: 500; padding: 12px 14px; min-height: 44px; box-sizing: border-box; border-radius: 10px; justify-content: space-between; }
+  .nav .sub a::after { content: "›"; color: var(--rose); font-size: 20px; line-height: 1; margin-left: 12px; }
+  .nav .sub a:active, .nav .sub a:hover { background: var(--white); color: var(--rose) !important; }
+  .nav .mega__col { padding: 4px 0; }
+  .nav .mega__col + .mega__col { border-top: 1px solid rgba(41,36,92,.08); }
+  .nav .mega__title { color: var(--rose) !important; font-size: 11.5px; letter-spacing: 1.6px; padding: 10px 14px 4px; margin: 0; }
+  .nav .mega__all { color: var(--rose) !important; font-weight: 700 !important; border-top: 1px solid rgba(41,36,92,.08) !important; margin-top: 4px; }
+  .nav .mega__all::after { content: none !important; }
+  .nav a.nav__mobile-cta.btn--navy { background: var(--navy); color: var(--white) !important; }
+  .nav a.nav__mobile-cta.btn--rose { background: var(--rose); color: var(--white) !important; }
+  .nav .nav__mobile-cta:first-of-type { margin-top: 24px; }
+  .nav .nav__mobile-cta::after { content: none; }
+}
