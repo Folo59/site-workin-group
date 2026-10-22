@@ -1044,3 +1044,14 @@ html, body { overflow-x: clip; }
 .cand-box .btn--ghost { border-color: rgba(255,255,255,.7); color: var(--white); }
 @media (max-width: 900px) { .booking { grid-template-columns: minmax(0,1fr); padding: 20px; } .booking__cal iframe { height: 760px; } }
 @media (max-width: 520px) { .who { grid-template-columns: minmax(0,1fr); } }
+.qualif { padding: 34px; display: grid; gap: 8px; }
+.qualif__step { font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--rose); }
+.qualif h3 { font-size: 22px; }
+.qualif > p { margin: 0 0 8px; color: var(--muted); font-size: 14.5px; }
+.qualif label { font-size: 14px; font-weight: 600; color: var(--navy); margin-top: 8px; }
+.qualif input, .qualif select { height: 50px; border: 1.5px solid var(--line); border-radius: 12px; padding: 0 14px; font: 400 15px var(--font); color: var(--navy); background: var(--white); width: 100%; box-sizing: border-box; }
+.qualif input:focus, .qualif select:focus { outline: none; border-color: var(--navy); }
+.qualif .btn { margin-top: 14px; justify-self: start; }
+.qualif__err { margin: 6px 0 0; color: #b42318; font-size: 14px; }
+.qualif__recap { padding: 14px 20px; background: var(--sand); font-size: 14px; color: var(--navy); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; justify-content: space-between; }
+.qualif__recap button { background: none; border: 0; color: var(--rose); font: 600 14px var(--font); cursor: pointer; padding: 8px 0; }

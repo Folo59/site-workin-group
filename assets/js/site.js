@@ -221,15 +221,31 @@
   }
   tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.getAttribute('data-who')); }); });
   if (location.hash === '#candidat') show('cand');
-  // Agenda : il suffit de renseigner data-calendly="https://calendly.com/…" dans la page
+  // Agenda : l'employeur indique d'abord son entreprise et son secteur, puis l'agenda Calendly s'ouvre
   var cal = document.querySelector('.booking__cal[data-calendly]');
   var url = cal && cal.getAttribute('data-calendly');
-  if (cal && url) {
-    var f = document.createElement('iframe');
-    f.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'hide_gdpr_banner=1&primary_color=ea346f';
-    f.title = 'Prendre rendez-vous avec Workin Group';
-    f.loading = 'lazy';
-    cal.innerHTML = '';
-    cal.appendChild(f);
+  var form = cal && cal.querySelector('.qualif');
+  if (cal && url && form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var ent = form.entreprise.value.trim(), sect = form.secteur.value, postes = form.postes.value;
+      var err = form.querySelector('.qualif__err');
+      if (sect === 'candidat') { show('cand'); document.getElementById('rendez-vous').scrollIntoView({ behavior: 'smooth' }); return; }
+      if (!ent || !sect || !postes) { err.hidden = false; return; }
+      err.hidden = true;
+      if (window.gtag) gtag('event', 'qualification_employeur', { secteur: sect, postes: postes });
+      var src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'hide_gdpr_banner=1&primary_color=ea346f';
+      var recap = document.createElement('div');
+      recap.className = 'qualif__recap';
+      recap.innerHTML = '<span><strong></strong> · <span class="r-s"></span> · <span class="r-p"></span></span><button type="button">Modifier</button>';
+      recap.querySelector('strong').textContent = ent;
+      recap.querySelector('.r-s').textContent = sect;
+      recap.querySelector('.r-p').textContent = postes;
+      var f = document.createElement('iframe');
+      f.src = src; f.title = 'Prendre rendez-vous avec Workin Group';
+      form.hidden = true;
+      cal.appendChild(recap); cal.appendChild(f);
+      recap.querySelector('button').addEventListener('click', function () { recap.remove(); f.remove(); form.hidden = false; });
+    });
   }
 })();
