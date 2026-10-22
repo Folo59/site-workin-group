@@ -249,3 +249,14 @@
     });
   }
 })();
+
+// Cookies : modifier son choix depuis la page dédiée
+(function () {
+  document.querySelectorAll('[data-cookie-reset]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      try { localStorage.removeItem('workin-cookies'); } catch (e) {}
+      document.cookie.split(';').forEach(function (c) { var n = c.split('=')[0].trim(); if (/^_ga/.test(n)) document.cookie = n + '=; Max-Age=0; path=/; domain=.' + location.hostname.replace(/^www\./, ''); });
+      location.reload();
+    });
+  });
+})();
