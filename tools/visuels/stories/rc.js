@@ -1,0 +1,2 @@
+const { chromium } = require('playwright');
+(async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1080,height:1920}});await p.goto('file://'+__dirname+'/cover-canada.html');await p.waitForTimeout(200);await p.screenshot({path:'out-cover-canada.jpg',type:'jpeg',quality:92});await p.screenshot({path:'zoom-canada.png',clip:{x:200,y:620,width:680,height:680}});await b.close()})();
