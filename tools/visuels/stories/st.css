@@ -21,3 +21,6 @@ h2{font-size:80px;line-height:1.06;color:#29245c;margin-top:36px}
 .card{padding:46px 48px}.card b{font-size:48px}.card span{font-size:36px}
 .stack{gap:36px}
 .team{gap:56px 30px;margin-top:80px}.team img{width:170px;height:170px}.team b{font-size:40px}.team span{font-size:28px}
+.card{position:relative}
+.card .pic{position:absolute;right:34px;top:30px;width:120px}
+.card b,.card span:not(.num){padding-right:130px}
