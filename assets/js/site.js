@@ -4,11 +4,15 @@
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('.nav');
   if (burger && nav) {
-    burger.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
+    var setMenu = function (open) {
+      nav.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', open);
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
       document.body.style.overflow = open ? 'hidden' : '';
-    });
+    };
+    burger.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); burger.focus(); } });
+    window.addEventListener('resize', function () { if (window.innerWidth > 960 && nav.classList.contains('is-open')) setMenu(false); });
     // sur téléphone, le premier appui ouvre le sous-menu au lieu de changer de page
     nav.querySelectorAll('.has-sub > .nav__top').forEach(function (a) {
       a.addEventListener('click', function (e) {

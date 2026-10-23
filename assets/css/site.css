@@ -1096,3 +1096,9 @@ html, body { overflow-x: clip; }
   .nav .nav__mobile-cta:first-of-type { margin-top: 24px; }
   .nav .nav__mobile-cta::after { content: none; }
 }
+
+/* Bouton menu mobile : se transforme en croix quand le menu est ouvert */
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 960px) { .burger { min-width: 44px; min-height: 44px; } }
