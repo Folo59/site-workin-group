@@ -1191,3 +1191,7 @@ html, body { overflow-x: clip; }
 .member img { display: block; width: 100%; max-width: 170px; margin-inline: auto; border-radius: 20px; }
 .member h3 { margin-top: 12px; font-size: 16px; }
 @media (max-width: 900px) { .member img { max-width: 140px; } }
+.team { max-width: 760px; gap: 28px 18px; }
+.member img { max-width: 130px; border-radius: 18px; }
+.member h3 { font-size: 15px; }
+@media (max-width: 900px) { .member img { max-width: 120px; } }
