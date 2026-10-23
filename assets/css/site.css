@@ -1109,3 +1109,11 @@ html, body { overflow-x: clip; }
   html.menu-open body { position: fixed; left: 0; right: 0; width: 100%; }
   .nav { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
 }
+
+/* Bandeau cookies : logo Workin Group à gauche */
+.cookies::before {
+  content: ""; flex: none; width: 64px; height: 64px; border-radius: 14px;
+  background: var(--rose) url(/wp-content/uploads/2023/12/logo-Workin-Group-ombre.webp) center / 82% auto no-repeat;
+}
+@media (max-width: 480px) { .cookies::before { width: 52px; height: 52px; } .cookies p { flex-basis: calc(100% - 70px); } }
+@media (min-width: 481px) { .cookies { max-width: 690px; flex-wrap: nowrap; } .cookies p { flex: 1 1 auto; } .cookies .btn { flex: none; } }
