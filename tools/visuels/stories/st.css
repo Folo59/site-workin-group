@@ -1,0 +1,23 @@
+.s{width:1080px;height:1920px;position:relative;overflow:hidden;background:#f5f4fa;color:#29245c}
+.safe{position:absolute;left:90px;right:90px;top:270px;bottom:330px;display:flex;flex-direction:column}
+.tag{align-self:flex-start;background:#ea346f;color:#fff;font-weight:700;font-size:28px;letter-spacing:.14em;text-transform:uppercase;padding:16px 30px;border-radius:999px}
+h1{font-size:96px;line-height:1.04;color:#29245c}
+h2{font-size:80px;line-height:1.06;color:#29245c;margin-top:36px}
+.lead{font-size:40px;line-height:1.4;margin-top:26px}
+.photo{position:absolute;left:0;top:0;width:100%;height:68%;object-fit:cover}
+.grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0) 34%,rgba(255,255,255,.92) 52%,#fff 62%)}
+.card{background:#fff;border-radius:32px;padding:40px 44px;box-shadow:0 12px 30px rgba(41,36,92,.08)}
+.card b{display:block;font-size:44px;color:#29245c}
+.card span{display:block;font-size:34px;line-height:1.35;margin-top:10px;color:#4a4580}
+.num{display:inline-grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#ea346f;color:#fff;font-weight:700;font-size:38px;margin-bottom:18px}
+.stack{display:flex;flex-direction:column;gap:30px;margin-top:56px}
+.navy{background:#29245c;color:#fff}.navy h2,.navy h1{color:#fff}.navy .card{background:rgba(255,255,255,.08);box-shadow:none}.navy .card b{color:#fff}.navy .card span{color:#cfcbef}
+.cta{margin-top:auto;align-self:stretch;text-align:center;background:#ea346f;color:#fff;font-weight:700;font-size:40px;padding:34px;border-radius:999px}
+.team{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 30px;margin-top:56px}
+.team div{display:flex;align-items:center;gap:22px}
+.team img{width:130px;height:130px;border-radius:50%;object-fit:cover;flex:none;border:5px solid #fff;box-shadow:0 6px 18px rgba(41,36,92,.15)}
+.team b{display:block;font-size:34px}.team span{display:block;font-size:24px;color:#4a4580;line-height:1.25}
+.card .num{display:inline-grid;place-items:center;width:84px;height:84px;border-radius:50%;background:#ea346f;color:#fff;font-weight:700;font-size:42px;margin:0 0 20px;line-height:1}
+.card{padding:46px 48px}.card b{font-size:48px}.card span{font-size:36px}
+.stack{gap:36px}
+.team{gap:56px 30px;margin-top:80px}.team img{width:170px;height:170px}.team b{font-size:40px}.team span{font-size:28px}
