@@ -1,0 +1,30 @@
+# Télécharge les photos listées dans tools/images.txt (une ligne : URL chemin/de/destination)
+# et les ajoute au dépôt. Sert aux visuels des réseaux sociaux.
+name: Récupérer les photos
+on:
+  push:
+    paths: ['tools/images.txt']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Télécharger
+        run: |
+          while read -r url dest; do
+            [ -z "$url" ] && continue
+            case "$url" in \#*) continue;; esac
+            [ -f "$dest" ] && continue
+            mkdir -p "$(dirname "$dest")"
+            curl -fsSL "$url" -o "$dest"
+            echo "ok $dest"
+          done < tools/images.txt
+      - name: Enregistrer
+        run: |
+          git config user.name "workin-bot"
+          git config user.email "workin-bot@users.noreply.github.com"
+          git add -A assets/social
+          git diff --cached --quiet || (git commit -m "Photos des visuels réseaux" && git push)
