@@ -1,0 +1,12 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,sans-serif;-webkit-font-smoothing:antialiased}
+.s{position:relative;overflow:hidden;display:flex;flex-direction:column}
+.navy{background:#29245c;color:#fff}.lil{background:#f5f4fa;color:#29245c}.rose{background:#ea346f;color:#fff}
+.pill{display:inline-block;align-self:flex-start;background:#ea346f;color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.12em;border-radius:999px}
+.lil .pill{background:#ea346f}
+h1,h2{font-weight:700;line-height:1.08;letter-spacing:-.02em}
+.rose-t{color:#ea346f}
+.blob{position:absolute;border-radius:50%;background:#ea346f}
+.logo{height:auto}
+.foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+.url{font-weight:600;opacity:.85}

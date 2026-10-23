@@ -1,0 +1,47 @@
+.s{width:1080px;height:1350px;padding:90px 86px}
+.pill{font-size:24px;padding:14px 28px}
+h1{font-size:96px;margin-top:48px}
+h2{font-size:74px;margin-top:40px}
+.lead{font-size:34px;margin-top:30px;line-height:1.4}
+.logo{width:190px}.url{font-size:28px}
+.num{position:absolute;right:86px;top:96px;font-weight:700;font-size:28px;opacity:.6}
+.steps{margin-top:60px;display:flex;flex-direction:column;gap:34px}
+.step{display:flex;gap:30px;align-items:flex-start}
+.step b{flex:none;width:230px;font-size:44px;line-height:1.1;color:#ea346f}
+.step span{font-size:33px;line-height:1.35}
+.cols{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{background:#fff;border-radius:28px;padding:40px 34px;box-shadow:0 10px 30px rgba(41,36,92,.08)}
+.card.dk{background:#29245c;color:#fff}
+.card h3{font-size:42px;margin-bottom:22px}
+.card li{font-size:28px;line-height:1.35;margin-bottom:16px;list-style:none;padding-left:40px;position:relative}
+.card li:before{content:"";position:absolute;left:0;top:10px;width:22px;height:22px;border-radius:50%;background:#ea346f}
+.check{margin-top:56px;display:flex;flex-direction:column;gap:26px}
+.check li{list-style:none;font-size:36px;line-height:1.3;padding-left:66px;position:relative}
+.check li:before{content:"✓";position:absolute;left:0;top:-2px;width:46px;height:46px;border-radius:50%;background:#ea346f;color:#fff;font-size:26px;display:grid;place-items:center;font-weight:700}
+.big{display:flex;gap:30px;margin-top:60px}
+.big div{flex:1;background:rgba(255,255,255,.08);border-radius:28px;padding:40px}
+.big b{display:block;font-size:110px;line-height:1;color:#ea346f}
+.big span{font-size:31px;line-height:1.3}
+.cta{margin-top:60px;background:#ea346f;border-radius:28px;padding:40px 44px;font-size:38px;font-weight:700;line-height:1.3}
+.swipe{font-size:30px;font-weight:600;color:#cfcbef}
+.blob{width:700px;height:700px;right:-260px;bottom:-260px}
+h1{font-size:104px}
+h2{font-size:84px}
+.steps{gap:56px;margin-top:80px}
+.step b{width:330px;font-size:50px;white-space:nowrap}
+.step span{font-size:40px}
+.cols{margin-top:80px}
+.card{padding:48px 40px}
+.card h3{font-size:54px;margin-bottom:30px}
+.card li{font-size:34px;margin-bottom:24px;padding-left:44px}
+.card li:before{top:14px}
+.check{gap:40px;margin-top:80px}
+.check li{font-size:44px;padding-left:76px}
+.check li:before{width:52px;height:52px;font-size:30px}
+.big{margin-top:80px}
+.big b{font-size:140px}
+.big span{font-size:36px}
+.cta{font-size:44px;margin-top:70px}
+.lead{font-size:40px}
+.step b{width:390px}.step{gap:20px}
+.nx{width:84px;height:84px;border-radius:50%;background:#ea346f;color:#fff;display:grid;place-items:center;font-size:44px;font-weight:700}
