@@ -19,3 +19,5 @@
 /wp-content/uploads/2023/12/Mentions-Legales.pdf /mentions-legales/ 301
 /wp-content/uploads/2023/12/Politique-des-donees-personnelles.pdf /donnees-personnelles/ 301
 /wp-content/uploads/2023/12/Cookies.pdf /cookies/ 301
+/en /  301
+/en/* /:splat 301
