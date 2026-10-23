@@ -33,6 +33,12 @@ a{text-decoration:none}
 .art div{padding:16px 20px 20px}
 .art small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
 .art strong{display:block;margin-top:6px;font-size:17px;line-height:1.35}
+.job{display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;padding:12px;box-shadow:0 8px 24px rgba(41,36,92,.18);color:var(--navy)}
+.job img{width:86px;height:86px;border-radius:14px;object-fit:cover;object-position:50% 20%;flex:none}
+.job small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose)}
+.job strong{display:block;margin-top:4px;font-size:16.5px;line-height:1.3}
+.job span{display:block;font-size:13px;color:#5a5690;margin-top:2px}
+.job .arrow{margin-left:auto;font-size:22px;color:var(--rose);padding-right:6px}
 .socials{display:flex;justify-content:center;gap:14px;margin-top:14px}
 .socials a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);color:#fff}
 .note{text-align:center;color:rgba(255,255,255,.85);font-size:12.5px;margin-top:6px}
@@ -46,6 +52,14 @@ a{text-decoration:none}
   </div>
 
   <a class="btn btn--navy" href="https://careers.marvins.ai/workin-group/jobs" target="_blank" rel="noopener" data-track="liens_offres">Voir les offres d'emploi <span class="arrow" aria-hidden="true">→</span></a>
+
+  <!-- OFFRE-DU-MOMENT : bloc mis à jour à chaque offre publiée -->
+  <a class="job" href="https://careers.marvins.ai/workin-group/jobs/c781555d-ab3f-4171-a666-ea327e3054ea" target="_blank" rel="noopener" data-track="liens_offre_du_moment">
+    <img src="/assets/social/src/cuisinier.jpg" alt="" width="86" height="86">
+    <div><small>Offre du moment</small><strong>Cuisinier H/F</strong><span>Au Québec · Restauration</span></div>
+    <span class="arrow" aria-hidden="true">→</span>
+  </a>
+  <!-- /OFFRE-DU-MOMENT -->
 
   <!-- DERNIER-ARTICLE : bloc mis à jour à chaque nouvel article -->
   <a class="art" href="/saison-eic-2027/" data-track="liens_article">
