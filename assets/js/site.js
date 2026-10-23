@@ -4,15 +4,32 @@
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('.nav');
   if (burger && nav) {
+    var savedY = 0;
     var setMenu = function (open) {
+      if (open === nav.classList.contains('is-open')) return;
+      var root = document.documentElement;
+      if (open) {
+        savedY = window.scrollY;
+        document.body.style.top = -savedY + 'px';
+        root.classList.add('menu-open');
+      } else {
+        root.classList.remove('menu-open');
+        document.body.style.top = '';
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, savedY);
+        root.style.scrollBehavior = '';
+      }
       nav.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', open);
       burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-      document.body.style.overflow = open ? 'hidden' : '';
     };
     burger.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) { setMenu(false); burger.focus(); } });
     window.addEventListener('resize', function () { if (window.innerWidth > 960 && nav.classList.contains('is-open')) setMenu(false); });
+    nav.addEventListener('click', function (e) {
+      var a = e.target.closest('a');
+      if (a && !a.classList.contains('nav__top') && window.innerWidth <= 960) setMenu(false);
+    });
     // sur téléphone, le premier appui ouvre le sous-menu au lieu de changer de page
     nav.querySelectorAll('.has-sub > .nav__top').forEach(function (a) {
       a.addEventListener('click', function (e) {

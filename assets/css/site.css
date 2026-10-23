@@ -1102,3 +1102,10 @@ html, body { overflow-x: clip; }
 .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 @media (max-width: 960px) { .burger { min-width: 44px; min-height: 44px; } }
+
+/* Menu mobile ouvert : la page derrière est bloquée et l'en-tête (avec la croix) reste toujours visible */
+@media (max-width: 960px) {
+  html.menu-open .header { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; }
+  html.menu-open body { position: fixed; left: 0; right: 0; width: 100%; }
+  .nav { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+}
