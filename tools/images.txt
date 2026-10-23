@@ -8,3 +8,8 @@ https://images.unsplash.com/photo-1765896387387-0538bc9f997e?auto=format&fit=cro
 https://images.unsplash.com/photo-1574757974346-45bae947d89a?auto=format&fit=crop&w=1600&q=85 assets/social/src/mecanicien.jpg
 https://images.unsplash.com/photo-1787209491856-38d60f0167a4?auto=format&fit=crop&w=1600&q=85 assets/social/src/vendeur.jpg
 https://images.unsplash.com/photo-1574966740793-953ad374e8fe?auto=format&fit=crop&w=1600&q=85 assets/social/src/chef.jpg
+https://images.unsplash.com/photo-1616587226960-4a03badbe8bf?auto=format&fit=crop&w=1100&h=1400&q=80 assets/social/src/faq-postuler.jpg
+https://images.unsplash.com/photo-1545013806-8e1d077550ca?auto=format&fit=crop&w=1100&h=1400&q=80 assets/social/src/faq-permis.jpg
+https://images.unsplash.com/photo-1580324081424-767a103c43c0?auto=format&fit=crop&w=1100&h=1400&q=80 assets/social/src/faq-famille.jpg
+https://images.unsplash.com/photo-1593534231822-063a269c9ba5?auto=format&fit=crop&w=1100&h=1400&q=80 assets/social/src/faq-installation.jpg
+https://images.unsplash.com/photo-1568904140419-4316e6fa2009?auto=format&fit=crop&w=1100&h=1400&q=80 assets/social/src/faq-rester.jpg
