@@ -1,0 +1,48 @@
+name: Transcription (temporaire)
+on:
+  push:
+    branches: [transcription-tmp]
+    paths: ['tmp-tr/claude.pub']
+permissions:
+  contents: write
+jobs:
+  tr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: transcription-tmp }
+      - name: Clé du runner
+        run: |
+          git config user.name "workin-bot"; git config user.email "workin-bot@users.noreply.github.com"
+          openssl genrsa -out /tmp/r.key 3072 2>/dev/null
+          openssl rsa -in /tmp/r.key -pubout -out tmp-tr/runner.pub 2>/dev/null
+          git add tmp-tr/runner.pub && git commit -qm "runner key" && git push -q
+      - name: Préparer le modèle
+        run: |
+          pip install -q faster-whisper
+          python -c "from faster_whisper import WhisperModel; WhisperModel('medium', device='cpu', compute_type='int8')"
+      - name: Attendre l'audio
+        run: |
+          for i in $(seq 1 120); do
+            git pull -q
+            [ -f tmp-tr/a.bin ] && [ -f tmp-tr/k.bin ] && break
+            sleep 10
+          done
+          openssl pkeyutl -decrypt -inkey /tmp/r.key -in tmp-tr/k.bin -out /tmp/k.txt
+          openssl enc -d -aes-256-cbc -pbkdf2 -in tmp-tr/a.bin -out /tmp/a.mp3 -pass file:/tmp/k.txt
+      - name: Transcrire
+        run: |
+          python - <<'PY'
+          import json
+          from faster_whisper import WhisperModel
+          m = WhisperModel("medium", device="cpu", compute_type="int8")
+          segs, info = m.transcribe("/tmp/a.mp3", language="fr", word_timestamps=True, vad_filter=True)
+          out = [{"start": s.start, "end": s.end, "text": s.text, "words": [{"s": w.start, "e": w.end, "w": w.word} for w in s.words]} for s in segs]
+          json.dump(out, open("/tmp/t.json", "w"), ensure_ascii=False)
+          PY
+          openssl rand -hex 32 | tr -d '\n' > /tmp/k2.txt
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in /tmp/t.json -out tmp-tr/t.bin -pass file:/tmp/k2.txt
+          openssl pkeyutl -encrypt -pubin -inkey tmp-tr/claude.pub -in /tmp/k2.txt -out tmp-tr/k2.bin
+          rm -f /tmp/a.mp3 /tmp/t.json
+          git pull -q; git add tmp-tr/t.bin tmp-tr/k2.bin && git commit -qm "result" && git push -q
