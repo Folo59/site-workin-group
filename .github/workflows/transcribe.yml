@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { ref: transcription-tmp }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
       - name: Clé du runner
         run: |
           git config user.name "workin-bot"; git config user.email "workin-bot@users.noreply.github.com"
@@ -20,7 +22,7 @@ jobs:
           git add tmp-tr/runner.pub && git commit -qm "runner key" && git push -q
       - name: Préparer le modèle
         run: |
-          pip install -q faster-whisper
+          pip install -q faster-whisper 2>&1 | tail -5 | tee /tmp/log.txt
           python -c "from faster_whisper import WhisperModel; WhisperModel('medium', device='cpu', compute_type='int8')"
       - name: Attendre l'audio
         run: |
@@ -46,3 +48,9 @@ jobs:
           openssl pkeyutl -encrypt -pubin -inkey tmp-tr/claude.pub -in /tmp/k2.txt -out tmp-tr/k2.bin
           rm -f /tmp/a.mp3 /tmp/t.json
           git pull -q; git add tmp-tr/t.bin tmp-tr/k2.bin && git commit -qm "result" && git push -q
+      - name: Journal en cas d'échec
+        if: failure()
+        run: |
+          echo "failed step context" >> /tmp/log.txt
+          cp /tmp/log.txt tmp-tr/log.txt 2>/dev/null || echo "no log" > tmp-tr/log.txt
+          git pull -q || true; git add tmp-tr/log.txt && git commit -qm "log" && git push -q
