@@ -1,0 +1,49 @@
+# Rotation des Reels (vidéos pastille verte). Un Reel par mois, dans l'ordre. Format :
+# n | fichier (sous https://workin-group.com/assets/social/reels/) | type | intervenants (couverture) | question clé | durée | à vérifier avant publication
+
+01 | 01-01-leua-best-of.mp4 | témoignage | Témoignage de Leua · Cuisinière au Québec | Partir travailler au Québec avec Workin, ça donne quoi ? | 50 s | -
+02 | 09-01-victor-hiver.mp4 | conseil | Préparation au départ de Victor · Serveur, en route pour le Québec | Le froid : faut-il s'équiper avant de partir ? | 62 s | -
+03 | 02-02-justine-accompagnement-workin.mp4 | avis sur Workin | Témoignage de Justine · Opticienne au Québec | L’accompagnement Workin, c’était comment ? | 55 s | -
+04 | 03-04-justine-premieres-semaines.mp4 | témoignage | Témoignage de Justine · Opticienne au Québec | Les premières semaines au Québec, c’est comment ? | 70 s | -
+05 | 09-02-lucas-hiver.mp4 | témoignage | Témoignage de Lucas · Installé au Québec depuis mai | L’hiver québécois, ça fait peur ? | 33 s | -
+06 | 01-03-lolita-best-of.mp4 | témoignage | Témoignage de Lolita · Opticienne au Québec | Opticienne partie au Québec : elle raconte | 58 s | -
+07 | 04-01-leua-trois-mois-avant-le-depart.mp4 | témoignage | Témoignage de Leua · Cuisinière au Québec | Combien de temps entre l'entretien et le départ ? | 35 s | -
+08 | 02-01-leua-workin-ma-aidee.mp4 | avis sur Workin | Témoignage de Leua · Cuisinière au Québec | Est-ce que passer par Workin t'a aidée ? | 30 s | -
+09 | 06-01-victor-nas-ou-l-obtenir.mp4 | conseil | Préparation au départ de Victor · Serveur, en route pour le Québec | Ton NAS : où et comment l'obtenir ? | 49 s | -
+10 | 03-09-lucas-se-faire-des-amis.mp4 | témoignage | Témoignage de Lucas · Installé au Québec depuis mai | Se faire des amis au Québec quand on travaille ? | 49 s | -
+11 | 05-04-jules-claire-arrivee-immigration.mp4 | conseil | Préparation au départ de Jules · Gestionnaire de cuisine, en route pour Montréal | Arrivée à Montréal : comment ça se passe à l’immigration ? | 32 s | -
+12 | 02-04-lolita-tu-recommanderais.mp4 | avis sur Workin | Témoignage de Lolita · Opticienne au Québec | Tu recommanderais de partir avec Workin ? | 44 s | -
+13 | 01-02-justine-best-of.mp4 | témoignage | Témoignage de Justine · Opticienne au Québec | Opticienne partie au Québec : elle raconte | 63 s | -
+14 | 04-06-victor-prises.mp4 | conseil | Préparation au départ de Victor · Serveur, en route pour le Québec | Les prises électriques au Canada, c'est pareil ? | 53 s | -
+15 | 07-02-romain-faire-meubler.mp4 | conseil | Préparation au départ de Romain · En route pour le Québec | Comment faire meubler son logement par le propriétaire ? | 38 s | -
+16 | 03-01-leua-pourquoi-partir.mp4 | témoignage | Témoignage de Leua · Cuisinière au Québec | Qu'est-ce qui t'a poussée à partir au Canada ? | 17 s | -
+17 | 06-03-victor-ramq.mp4 | conseil | Préparation au départ de Victor · Serveur, en route pour le Québec | La RAMQ : comment éviter les 3 mois de carence ? | 62 s | -
+18 | 02-05-lucas-accompagnement-workin.mp4 | avis sur Workin | Témoignage de Lucas · Installé au Québec depuis mai | L’accompagnement Workin, ça aide vraiment ? | 42 s | -
+19 | 01-04-lucas-best-of.mp4 | témoignage | Témoignage de Lucas · Installé au Québec depuis mai | Parti travailler au Québec : il raconte | 56 s | Métier de Lucas à compléter
+20 | 04-09-bruno-claire-delai-biometrie.mp4 | conseil | Préparation au départ de Bruno · En route pour le Québec | Biométrie faite : combien de temps avant le départ ? | 21 s | -
+21 | 03-06-lolita-la-vie-au-quebec.mp4 | témoignage | Témoignage de Lolita · Opticienne au Québec | Opticienne au Québec : ça se passe comment ? | 45 s | -
+22 | 05-05-jules-claire-verifier-permis-post-it.mp4 | conseil | Préparation au départ de Jules · Gestionnaire de cuisine, en route pour Montréal | Ton permis de travail : l’astuce du post-it | 55 s | -
+23 | 02-07-bruno-claire-accompagnement.mp4 | avis sur Workin | Préparation au départ de Bruno · En route pour le Québec | Qui t'accompagne jusqu'à ton arrivée au Québec ? | 25 s | -
+24 | 04-02-romain-permis-approuve.mp4 | conseil | Préparation au départ de Romain · En route pour le Québec | Permis approuvé : et maintenant ? | 49 s | -
+25 | 06-02-victor-nas-pas-en-ligne.mp4 | conseil | Préparation au départ de Victor · Serveur, en route pour le Québec | Pourquoi ne pas demander ton NAS en ligne ? | 62 s | -
+26 | 03-05-justine-employeur.mp4 | témoignage | Témoignage de Justine · Opticienne au Québec | Et avec ton employeur au Québec, ça se passe comment ? | 44 s | -
+27 | 07-03-romain-payer-loyer.mp4 | conseil | Préparation au départ de Romain · En route pour le Québec | Payer son loyer depuis la France : Wise ou Revolut ? | 39 s | -
+28 | 02-03-lolita-accompagnement-workin.mp4 | avis sur Workin | Témoignage de Lolita · Opticienne au Québec | L’accompagnement Workin, c’était comment ? | 67 s | Offre billets moins chers toujours active ?
+29 | 03-08-lucas-arrivee-au-quebec.mp4 | témoignage | Témoignage de Lucas · Installé au Québec depuis mai | Arrivé au Québec en mai : ça se passe comment ? | 41 s | -
+30 | 04-10-jules-claire-assurance-2-ans.mp4 | conseil | Préparation au départ de Jules · Gestionnaire de cuisine, en route pour Montréal | Pourquoi prendre une assurance de 2 ans ? | 25 s | -
+31 | 10-01-justine-permis-2-ans-et-apres.mp4 | témoignage | Témoignage de Justine · Opticienne au Québec | Permis de 2 ans : quand préparer la suite ? | 56 s | -
+32 | 03-02-leua-installation-sur-place.mp4 | témoignage | Témoignage de Leua · Cuisinière au Québec | Une fois sur place, comment ça se passe ? | 29 s | -
+33 | 05-06-romain-arrivee-aeroport.mp4 | conseil | Préparation au départ de Romain · En route pour le Québec | Qui vient te chercher à l’aéroport ? | 28 s | -
+34 | 06-04-jules-claire-ordre-des-demarches.mp4 | conseil | Préparation au départ de Jules · Gestionnaire de cuisine, en route pour Montréal | NAS, RAMQ, banque : dans quel ordre ? | 58 s | -
+35 | 02-06-catherine-accompagnement-workin.mp4 | avis sur Workin | Témoignage de Catherine · Opticienne au Québec | L’accompagnement Workin, c’était comment ? | 78 s | Prénom affiché : OK pour Catherine ?
+36 | 03-07-lolita-rester-au-quebec.mp4 | témoignage | Témoignage de Lolita · Opticienne au Québec | Et sur le long terme, tu te vois au Québec ? | 32 s | -
+37 | 04-08-christelle-claire-logement-avant-permis.mp4 | conseil | Préparation au départ de Christelle · Opticienne, en route pour le Québec | Faut-il chercher son logement avant d’avoir son permis ? | 19 s | -
+38 | 08-04-bruno-marine-courtier-pret.mp4 | conseil | Préparation au départ de Bruno · En route pour le Québec | Acheter au Québec : pourquoi passer par un courtier en prêt ? | 72 s | -
+39 | 03-03-leua-a-ceux-qui-hesitent.mp4 | témoignage | Témoignage de Leua · Cuisinière au Québec | Que dirais-tu à quelqu'un qui hésite à partir ? | 47 s | -
+40 | 04-03-romain-recap-depart.mp4 | conseil | Préparation au départ de Romain · En route pour le Québec | Avant le départ : les 3 étapes à ne pas rater | 40 s | -
+41 | 05-07-victor-reste-pas-seul.mp4 | conseil | Préparation au départ de Victor · Serveur, en route pour le Québec | Et si j'ai un problème en arrivant ? | 26 s | -
+42 | 10-03-lucas-rester-apres-le-permis.mp4 | témoignage | Témoignage de Lucas · Installé au Québec depuis mai | Rester au Québec après son permis : quand s’en occuper ? | 43 s | -
+43 | 06-07-loic-ramq-attestation-ameli.mp4 | conseil | Le conseil de Loïc · Fondateur de Workin Group | RAMQ : l’astuce de l’attestation Ameli | 46 s | Faire valider par Eric (formulaire SE 401-Q-104 ?)
+44 | 04-11-justine-equivalence-opticien.mp4 | témoignage | Témoignage de Justine · Opticienne au Québec | Opticienne : et l’équivalence au Québec ? | 45 s | -
+45 | 08-05-bruno-marine-frais-notaire.mp4 | conseil | Préparation au départ de Bruno · En route pour le Québec | Acheter au Québec, c'est intéressant ? | 36 s | Taxe de bienvenue : vérifier "frais très faibles"
+46 | 10-02-lolita-on-trouve-une-solution.mp4 | témoignage | Témoignage de Lolita · Opticienne au Québec | Renouvellement, résidence permanente : et si ça bloque ? | 31 s | Promesse "toujours une solution" : accord de Loïc
