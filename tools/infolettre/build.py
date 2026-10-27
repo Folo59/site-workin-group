@@ -6,25 +6,25 @@ FONT="font-family:'Poppins',Arial,Helvetica,sans-serif;"
 e=html.escape
 
 def p(t,extra=''):
-    return f'<p style="margin:0 0 14px;{FONT}font-size:15px;line-height:1.6;color:{TXT};{extra}">{t}</p>'
+    return f'<p style="text-align:left;margin:0 0 14px;{FONT}font-size:15px;line-height:1.6;color:{TXT};{extra}">{t}</p>'
 def ul(items):
-    li=''.join(f'<tr><td valign="top" style="width:18px;padding:0 0 10px;{FONT}font-size:15px;line-height:1.6;color:{ROSE};font-weight:700;">•</td><td style="padding:0 0 10px;{FONT}font-size:15px;line-height:1.6;color:{TXT};">{i}</td></tr>' for i in items)
+    li=''.join(f'<tr><td valign="top" style="width:18px;padding:0 0 10px;{FONT}font-size:15px;line-height:1.6;color:{ROSE};font-weight:700;">•</td><td style="text-align:left;padding:0 0 10px;{FONT}font-size:15px;line-height:1.6;color:{TXT};">{i}</td></tr>' for i in items)
     return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 6px;">{li}</table>'
 def callout(t):
-    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:4px 0 14px;"><tr><td style="border-left:4px solid {ROSE};background:{LILAS};padding:14px 16px;{FONT}font-size:15px;line-height:1.6;color:{NAVY};font-weight:600;border-radius:0 8px 8px 0;">{t}</td></tr></table>'
+    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:4px 0 14px;"><tr><td style="text-align:left;border-left:4px solid {ROSE};background:{LILAS};padding:14px 16px;{FONT}font-size:15px;line-height:1.6;color:{NAVY};font-weight:600;border-radius:0 8px 8px 0;">{t}</td></tr></table>'
 def source(t):
-    return f'<p style="margin:0;{FONT}font-size:11.5px;line-height:1.5;color:{GRIS};">Source{"s" if ";" in t else ""} : {t}</p>'
+    return f'<p style="text-align:left;margin:0;{FONT}font-size:11.5px;line-height:1.5;color:{GRIS};">Source{"s" if ";" in t else ""} : {t}</p>'
 def section(n,kicker,title,body):
-    return f'''<tr><td style="padding:30px 32px 0;">
-<p style="margin:0 0 8px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">{kicker}</p>
+    return f'''<tr><td style="text-align:left;padding:30px 32px 0;">
+<p style="text-align:left;margin:0 0 8px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">{kicker}</p>
 <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr>
 <td valign="top" style="width:30px;padding-top:1px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="width:30px;height:30px;line-height:30px;background:{ROSE};border-radius:15px;text-align:center;{FONT}font-size:14px;font-weight:700;color:#ffffff;">{n}</td></tr></table></td>
 <td valign="top" style="padding-left:12px;{FONT}font-size:20px;line-height:1.3;font-weight:700;color:{NAVY};">{title}</td></tr></table>
 {body}</td></tr>'''
 def button(label,href):
-    return f'<table role="presentation" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td style="background:{ROSE};border-radius:30px;"><a href="{href}" style="display:inline-block;padding:13px 26px;{FONT}font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;">{label}</a></td></tr></table>'
+    return f'<table role="presentation" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td style="text-align:left;background:{ROSE};border-radius:30px;"><a href="{href}" style="display:inline-block;padding:13px 26px;{FONT}font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;">{label}</a></td></tr></table>'
 
-stats=''.join(f'<td valign="top" width="33%" style="padding:6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="background:{LILAS};border-radius:10px;padding:16px 14px;"><p style="margin:0 0 4px;{FONT}font-size:20px;font-weight:700;color:{ROSE};line-height:1.15;white-space:nowrap;">{a}</p><p style="margin:0;{FONT}font-size:12.5px;line-height:1.45;color:{NAVY};">{b}</p></td></tr></table></td>' for a,b in [
+stats=''.join(f'<td valign="top" width="33%" style="padding:6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:16px 14px;"><p style="text-align:left;margin:0 0 4px;{FONT}font-size:20px;font-weight:700;color:{ROSE};line-height:1.15;white-space:nowrap;">{a}</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.45;color:{NAVY};">{b}</p></td></tr></table></td>' for a,b in [
  ('82 jours','ouvrables en moyenne pour une EIMT bas salaire'),('98 jours','ouvrables en moyenne pour une EIMT haut salaire'),('+ affichage','la période d’affichage préalable n’est pas comprise dans ces délais')])
 
 reflexes=[
@@ -34,16 +34,16 @@ reflexes=[
  ('Le travailleur dépose sa prolongation avant l’expiration de son permis.','S’il le fait à temps et que ses conditions restent les mêmes, il conserve son statut et peut continuer à travailler aux mêmes conditions jusqu’à la décision.'),
  ('Changement d’employeur ou de conditions importantes ?','IRCC recommande alors de déposer la demande au moins 30 jours avant l’expiration du permis actuel.'),
  ('Poste dispensé d’EIMT, au Québec :','pas d’EIMT ni de CAQ, mais dans la plupart des cas une nouvelle offre d’emploi à présenter par l’employeur au Portail des employeurs.')]
-ref=''.join(f'<tr><td valign="top" style="width:40px;padding:0 0 14px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="width:28px;height:28px;line-height:28px;border:2px solid {ROSE};border-radius:16px;text-align:center;{FONT}font-size:13px;font-weight:700;color:{ROSE};">{i}</td></tr></table></td><td style="padding:3px 0 14px;{FONT}font-size:15px;line-height:1.6;color:{TXT};"><strong style="color:{NAVY};">{a}</strong> {b}</td></tr>' for i,(a,b) in enumerate(reflexes,1))
+ref=''.join(f'<tr><td valign="top" style="width:40px;padding:0 0 14px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="width:28px;height:28px;line-height:28px;border:2px solid {ROSE};border-radius:16px;text-align:center;{FONT}font-size:13px;font-weight:700;color:{ROSE};">{i}</td></tr></table></td><td style="text-align:left;padding:3px 0 14px;{FONT}font-size:15px;line-height:1.6;color:{TXT};"><strong style="color:{NAVY};">{a}</strong> {b}</td></tr>' for i,(a,b) in enumerate(reflexes,1))
 
 links=[('Le Courrier Frontenac · 07-10-2026','Les délais d’EIMT mettent des entreprises et des emplois en péril','La lettre du député Luc Berthold et les cas d’entreprises de sa région.','https://courrierfrontenac.qc.ca/actualites/les-delais-deimt-mettent-des-entreprises-et-des-emplois-en-peril/'),
  ('CIC News · 13-10-2026','LMIA processing times trend downward (en anglais)','Le détail des délais moyens d’EIMT par volet, mois par mois.','https://cicnews.com/2026/10/lmia-processing-times-trend-downward-1081284.html'),
  ('IRCC · Page officielle','Expérience internationale Canada : rondes d’invitations','L’état des bassins, mis à jour par IRCC.','https://ircc.canada.ca/francais/travailler/eic/selection.asp'),
  ('EDSC · Page officielle','Refus de traiter une demande d’EIMT (en anglais)','La liste des régions visées et la date de sa prochaine mise à jour.','https://www.canada.ca/en/employment-social-development/services/foreign-workers/refusal.html')]
-lk=''.join(f'<tr><td style="padding:0 0 16px;"><p style="margin:0 0 2px;{FONT}font-size:11px;letter-spacing:1px;text-transform:uppercase;color:{GRIS};font-weight:600;">{a}</p><a href="{u}" style="{FONT}font-size:15px;font-weight:700;color:{NAVY};text-decoration:underline;text-decoration-color:{ROSE};">{b}</a><p style="margin:2px 0 0;{FONT}font-size:13.5px;line-height:1.5;color:{TXT};">{c}</p></td></tr>' for a,b,c,u in links)
+lk=''.join(f'<tr><td style="text-align:left;padding:0 0 16px;"><p style="text-align:left;margin:0 0 2px;{FONT}font-size:11px;letter-spacing:1px;text-transform:uppercase;color:{GRIS};font-weight:600;">{a}</p><a href="{u}" style="{FONT}font-size:15px;font-weight:700;color:{NAVY};text-decoration:underline;text-decoration-color:{ROSE};">{b}</a><p style="text-align:left;margin:2px 0 0;{FONT}font-size:13.5px;line-height:1.5;color:{TXT};">{c}</p></td></tr>' for a,b,c,u in links)
 
 def secteur(t,body):
-    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr><td style="border:1px solid #e3e0f2;border-radius:10px;padding:18px 20px;"><p style="margin:0 0 6px;{FONT}font-size:16px;font-weight:700;color:{NAVY};">{t}</p><p style="margin:0;{FONT}font-size:14.5px;line-height:1.6;color:{TXT};">{body}</p></td></tr></table>'
+    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr><td style="text-align:left;border:1px solid #e3e0f2;border-radius:10px;padding:18px 20px;"><p style="text-align:left;margin:0 0 6px;{FONT}font-size:16px;font-weight:700;color:{NAVY};">{t}</p><p style="text-align:left;margin:0;{FONT}font-size:14.5px;line-height:1.6;color:{TXT};">{body}</p></td></tr></table>'
 
 body=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="x-apple-disable-message-reformatting">
 <title>L’infolettre immigration de vos embauches · Octobre 2026</title>
@@ -55,32 +55,32 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 <body style="margin:0;padding:0;background:#eeecf6;">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Saison Jeunes professionnels fermée, délais d’EIMT, Montréal bloquée jusqu’en janvier, et six réflexes pour vos renouvellements.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eeecf6;"><tr><td align="center" style="padding:24px 10px;">
-<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="width:600px;background:#ffffff;border-radius:14px;overflow:hidden;">
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="text-align:left;width:600px;background:#ffffff;border-radius:14px;overflow:hidden;">
 
 <!-- EN-TÊTE -->
-<tr><td class="px" style="background:{NAVY};padding:28px 32px 26px;">
+<tr><td class="px" style="text-align:left;background:{NAVY};padding:28px 32px 26px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-<td class="stack" valign="top">
+<td class="stack" valign="top" align="left" style="text-align:left;">
 <img src="{IMG}/logo-workin-group-blanc.png" width="150" alt="Workin Group" style="display:block;width:150px;height:auto;border:0;margin:0 0 18px;">
-<p style="margin:0 0 6px;{FONT}font-size:22px;line-height:1.25;font-weight:700;color:#ffffff;">L’infolettre immigration de vos embauches</p>
-<p style="margin:0 0 16px;{FONT}font-size:13.5px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p>
+<p style="text-align:left;margin:0 0 6px;{FONT}font-size:22px;line-height:1.25;font-weight:700;color:#ffffff;">L’infolettre immigration de vos embauches</p>
+<p style="text-align:left;margin:0 0 16px;{FONT}font-size:13.5px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p>
 <span style="display:inline-block;background:{ROSE};border-radius:20px;padding:6px 14px;{FONT}font-size:11.5px;letter-spacing:1px;font-weight:700;color:#ffffff;">OCTOBRE 2026</span>
 </td>
 <td class="stack center-m" valign="top" width="150" style="width:150px;text-align:center;">
-<img src="{IMG}/eric-saie.jpg" width="84" height="84" alt="Eric Saie" style="display:inline-block;width:84px;height:84px;border-radius:42px;border:3px solid #ffffff;">
-<p style="margin:8px 0 2px;{FONT}font-size:14px;font-weight:700;color:#ffffff;">Eric Saie</p>
-<p style="margin:0 0 6px;{FONT}font-size:11.5px;line-height:1.4;color:#d9d6f0;">Consultant réglementé en immigration canadienne</p>
-<p style="margin:0;{FONT}font-size:10.5px;line-height:1.4;color:#ffffff;font-weight:600;">CRIC N° R533143<br>CIIQ N° 11929</p>
+<img src="{IMG}/eric-saie-rond.png" width="90" height="90" alt="Eric Saie" style="display:inline-block;width:90px;height:90px;border:0;">
+<p style="text-align:center;margin:8px 0 2px;{FONT}font-size:14px;font-weight:700;color:#ffffff;">Eric Saie</p>
+<p style="text-align:center;margin:0 0 6px;{FONT}font-size:11.5px;line-height:1.4;color:#d9d6f0;">Consultant réglementé en immigration canadienne</p>
+<p style="text-align:center;margin:0;{FONT}font-size:10.5px;line-height:1.4;color:#ffffff;font-weight:600;">CRIC N° R533143<br>CIIQ N° 11929</p>
 </td></tr></table></td></tr>
-<tr><td style="height:6px;background:{ROSE};font-size:0;line-height:0;">&nbsp;</td></tr>
+<tr><td style="text-align:left;height:6px;background:{ROSE};font-size:0;line-height:0;">&nbsp;</td></tr>
 
 <!-- INTRO -->
-<tr><td class="px" style="padding:30px 32px 0;">
+<tr><td class="px" style="text-align:left;padding:30px 32px 0;">
 {p('Bonjour,')}
 {p('Chaque mois, le Pôle Immigration de Workin vous résume l’actualité qui touche directement vos embauches de travailleurs étrangers, et ce qu’elle change concrètement pour vous. Ce mois-ci, trois nouvelles comptent, et quelques réflexes à prendre dès maintenant pour vos renouvellements.')}
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td style="background:{LILAS};border-radius:10px;padding:18px 22px;">
-<p style="margin:0 0 8px;{FONT}font-size:13px;font-weight:700;color:{NAVY};text-transform:uppercase;letter-spacing:1px;">Au sommaire</p>
-<p style="margin:0;{FONT}font-size:14.5px;line-height:1.8;color:{TXT};">1. Jeunes professionnels : la saison 2026 est fermée<br>2. Délais des EIMT : un député demande à Ottawa d’agir<br>3. EIMT bas salaire : Montréal bloquée jusqu’en janvier<br>4. Renouvellements : six réflexes pour ne pas être pris de court</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:18px 22px;">
+<p style="text-align:left;margin:0 0 8px;{FONT}font-size:13px;font-weight:700;color:{NAVY};text-transform:uppercase;letter-spacing:1px;">Au sommaire</p>
+<p style="text-align:left;margin:0;{FONT}font-size:14.5px;line-height:1.8;color:{TXT};">1. Jeunes professionnels : la saison 2026 est fermée<br>2. Délais des EIMT : un député demande à Ottawa d’agir<br>3. EIMT bas salaire : Montréal bloquée jusqu’en janvier<br>4. Renouvellements : six réflexes pour ne pas être pris de court</p>
 </td></tr></table></td></tr>
 
 {section(1,'À la une','Jeunes professionnels : la saison 2026 est fermée',
@@ -112,51 +112,51 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
  source('IRCC, « Extend a temporary worker’s permit », page modifiée le 14-10-2026 ; EDSC, « Hire a temporary foreign worker in a low-wage position », page modifiée le 07-10-2026 ; IRCC, Centre d’aide, « I work in Quebec. How can I extend my work permit? », page modifiée le 28-09-2026 ; consultées le 27-10-2026.'))}
 
 <!-- NOTRE SPÉCIALITÉ -->
-<tr><td class="px" style="padding:32px 32px 0;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="background:{NAVY};border-radius:14px;padding:26px 26px 24px;">
-<p style="margin:0 0 6px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Notre spécialité</p>
-<p style="margin:0 0 14px;{FONT}font-size:20px;font-weight:700;line-height:1.3;color:#ffffff;">Pourquoi recruter un Jeune professionnel</p>
-{''.join(f'<p style="margin:0 0 12px;{FONT}font-size:14.5px;line-height:1.6;color:#e3e1f3;"><strong style="color:#ffffff;">{a}</strong> {b}</p>' for a,b in [
+<tr><td class="px" style="text-align:left;padding:32px 32px 0;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:{NAVY};border-radius:14px;padding:26px 26px 24px;">
+<p style="text-align:left;margin:0 0 6px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Notre spécialité</p>
+<p style="text-align:left;margin:0 0 14px;{FONT}font-size:20px;font-weight:700;line-height:1.3;color:#ffffff;">Pourquoi recruter un Jeune professionnel</p>
+{''.join(f'<p style="text-align:left;margin:0 0 12px;{FONT}font-size:14.5px;line-height:1.6;color:#e3e1f3;"><strong style="color:#ffffff;">{a}</strong> {b}</p>' for a,b in [
  ('Aucune EIMT à obtenir :','les permis d’Expérience internationale Canada sont dispensés de l’étude d’impact sur le marché du travail (code de dispense C21). Pas d’EIMT, donc pas de délai d’EIMT.'),
  ('Un permis lié à votre entreprise :','le jeune professionnel obtient un permis de travail propre à l’employeur, pour acquérir de l’expérience dans son métier ou son domaine d’études.'),
  ('Workin s’occupe de tout :','recrutement en France, montage complet du dossier, offre d’emploi au Portail des employeurs et suivi jusqu’à l’arrivée.')])}
-<p style="margin:4px 0 16px;{FONT}font-size:14.5px;line-height:1.6;color:#ffffff;">La saison 2026 est fermée, mais vos recrutements 2027 se préparent dès maintenant : nous montons chaque dossier pour qu’il soit déposé dès la réouverture des bassins.</p>
+<p style="text-align:left;margin:4px 0 16px;{FONT}font-size:14.5px;line-height:1.6;color:#ffffff;">La saison 2026 est fermée, mais vos recrutements 2027 se préparent dès maintenant : nous montons chaque dossier pour qu’il soit déposé dès la réouverture des bassins.</p>
 {button('Un poste à pourvoir en 2027 ? Écrivez-nous','mailto:eric@workin-group.com?subject=Recrutement%202027%20-%20Jeune%20professionnel')}
-<p style="margin:16px 0 0;{FONT}font-size:11px;line-height:1.5;color:#b9b5dc;">Source : IRCC, « International Experience Canada (IEC) – [R204(d) – C21] », page modifiée le 24-12-2025, consultée le 27-10-2026.</p>
+<p style="text-align:left;margin:16px 0 0;{FONT}font-size:11px;line-height:1.5;color:#b9b5dc;">Source : IRCC, « International Experience Canada (IEC) – [R204(d) – C21] », page modifiée le 24-12-2025, consultée le 27-10-2026.</p>
 </td></tr></table></td></tr>
 
 <!-- PAR SECTEUR -->
-<tr><td class="px" style="padding:30px 32px 0;">
-<p style="margin:0 0 12px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Par secteur</p>
+<tr><td class="px" style="text-align:left;padding:30px 32px 0;">
+<p style="text-align:left;margin:0 0 12px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Par secteur</p>
 {secteur('Restauration et hôtellerie','La saison estivale 2027 se prépare maintenant. Un cuisinier ou un employé de salle recruté en France cet automne pourra déposer son profil dès la réouverture des bassins si son dossier est prêt. Et si vos équipes comptent des travailleurs sous EIMT, vérifiez dès aujourd’hui leurs dates d’expiration : dans la région de Montréal, certaines demandes d’EIMT pour des postes à bas salaire ne sont pas traitées jusqu’au 7 janvier 2027.')}
 {secteur('Alimentation et commerce de détail','Gérants de rayon, bouchers, boulangers : ces postes se préparent bien à l’avance. Nos dossiers Jeunes professionnels avancent pendant la fermeture du bassin, pour être déposés dès la réouverture. Si vous prévoyez un remplacement ou un nouveau poste en 2027, c’est le moment d’en parler.')}
 </td></tr>
 
 <!-- POUR ALLER PLUS LOIN -->
-<tr><td class="px" style="padding:20px 32px 0;">
-<p style="margin:0 0 14px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Pour aller plus loin · À lire ailleurs</p>
+<tr><td class="px" style="text-align:left;padding:20px 32px 0;">
+<p style="text-align:left;margin:0 0 14px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Pour aller plus loin · À lire ailleurs</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">{lk}</table>
 </td></tr>
 
 <!-- SIGNATURE -->
-<tr><td class="px" style="padding:14px 32px 30px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #e3e0f2;"><tr><td style="padding-top:22px;">
+<tr><td class="px" style="text-align:left;padding:14px 32px 30px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #e3e0f2;"><tr><td style="text-align:left;padding-top:22px;">
 {p('Une question sur l’un de vos dossiers ou sur un recrutement à venir ? Nous restons à votre disposition par courriel.')}
 {p('Bonne journée,','margin-bottom:16px;')}
 <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-<td valign="top" style="padding-right:14px;"><img src="{IMG}/eric-saie.jpg" width="56" height="56" alt="" style="display:block;width:56px;height:56px;border-radius:28px;"></td>
+<td valign="top" style="padding-right:14px;"><img src="{IMG}/eric-saie-rond-petit.png" width="56" height="56" alt="" style="display:block;width:56px;height:56px;border:0;"></td>
 <td valign="top">
-<p style="margin:0;{FONT}font-size:15px;font-weight:700;color:{NAVY};">Eric Saie</p>
-<p style="margin:0;{FONT}font-size:13px;line-height:1.5;color:{TXT};">Responsable du Pôle Immigration — CRIC #R533143 · CIIQ #11929<br>
+<p style="text-align:left;margin:0;{FONT}font-size:15px;font-weight:700;color:{NAVY};">Eric Saie</p>
+<p style="text-align:left;margin:0;{FONT}font-size:13px;line-height:1.5;color:{TXT};">Responsable du Pôle Immigration — CRIC #R533143 · CIIQ #11929<br>
 <a href="tel:+15149450070" style="color:{TXT};text-decoration:none;">+1 514 945-0070</a> · <a href="mailto:eric@workin-group.com" style="color:{NAVY};">eric@workin-group.com</a><br>
 Montréal, Canada et Lille, France · <a href="https://workin-group.com/" style="color:{ROSE};font-weight:600;">workin-group.com</a></p>
-<p style="margin:6px 0 0;{FONT}font-size:13px;font-style:italic;color:{ROSE};">Notre engagement, votre succès</p>
+<p style="text-align:left;margin:6px 0 0;{FONT}font-size:13px;font-style:italic;color:{ROSE};">Notre engagement, votre succès</p>
 </td></tr></table>
 </td></tr></table></td></tr>
 
 <!-- MENTION -->
-<tr><td class="px" style="background:{LILAS};padding:18px 32px;">
-<p style="margin:0;{FONT}font-size:11.5px;line-height:1.55;color:{GRIS};">Cette infolettre fournit une information générale à jour au 27 octobre 2026. Elle ne constitue pas un avis sur votre situation particulière : chaque dossier s’examine au cas par cas.</p>
+<tr><td class="px" style="text-align:left;background:{LILAS};padding:18px 32px;">
+<p style="text-align:left;margin:0;{FONT}font-size:11.5px;line-height:1.55;color:{GRIS};">Cette infolettre fournit une information générale à jour au 27 octobre 2026. Elle ne constitue pas un avis sur votre situation particulière : chaque dossier s’examine au cas par cas.</p>
 </td></tr>
 </table>
 </td></tr></table>
