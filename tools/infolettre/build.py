@@ -53,6 +53,7 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 @media (max-width:620px){{ .wrap{{width:100%!important;}} .px{{padding-left:20px!important;padding-right:20px!important;}} .stack{{display:block!important;width:100%!important;}} .hide-m{{display:none!important;}} .center-m{{text-align:left!important;padding-top:18px!important;}} }}
 </style></head>
 <body style="margin:0;padding:0;background:#eeecf6;">
+<!--email_off-->
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Saison Jeunes professionnels fermée, délais d’EIMT, Montréal bloquée jusqu’en janvier, et six réflexes pour vos renouvellements.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eeecf6;"><tr><td align="center" style="padding:24px 10px;">
 <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="text-align:left;width:600px;background:#ffffff;border-radius:14px;overflow:hidden;">
@@ -160,6 +161,7 @@ Montréal, Canada et Lille, France · <a href="https://workin-group.com/" style=
 </td></tr>
 </table>
 </td></tr></table>
+<!--/email_off-->
 </body></html>'''
 out=pathlib.Path(__file__).parent/'infolettre-2026-10.html'
 out.write_text(body,encoding='utf-8'); print(out, len(body))
