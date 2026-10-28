@@ -18,11 +18,11 @@ def section(n,kicker,title,body):
     return f'''<tr><td style="text-align:left;padding:30px 32px 0;">
 <p style="text-align:left;margin:0 0 8px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">{kicker}</p>
 <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr>
-<td valign="top" style="width:30px;padding-top:1px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="width:30px;height:30px;line-height:30px;background:{ROSE};border-radius:15px;text-align:center;{FONT}font-size:14px;font-weight:700;color:#ffffff;">{n}</td></tr></table></td>
+<td valign="top" width="30" style="width:30px;padding-top:1px;"><img src="{IMG}/num-{n}.png" width="30" height="30" alt="{n}" style="display:block;width:30px;height:30px;border:0;"></td>
 <td valign="top" style="padding-left:12px;{FONT}font-size:20px;line-height:1.3;font-weight:700;color:{NAVY};">{title}</td></tr></table>
 {body}</td></tr>'''
 def button(label,href):
-    return f'<table role="presentation" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td style="text-align:left;background:{ROSE};border-radius:30px;"><a href="{href}" style="display:inline-block;padding:13px 26px;{FONT}font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;">{label}</a></td></tr></table>'
+    return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td align="center" style="text-align:center;"><table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;"><tr><td align="center" style="text-align:center;background:{ROSE};border-radius:30px;"><a href="{href}" style="display:inline-block;padding:14px 28px;{FONT}font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;text-align:center;">{label}</a></td></tr></table></td></tr></table>'
 
 stats=''.join(f'<td valign="top" width="33%" style="padding:6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:16px 14px;"><p style="text-align:left;margin:0 0 4px;{FONT}font-size:20px;font-weight:700;color:{ROSE};line-height:1.15;white-space:nowrap;">{a}</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.45;color:{NAVY};">{b}</p></td></tr></table></td>' for a,b in [
  ('82 jours','ouvrables en moyenne pour une EIMT bas salaire'),('98 jours','ouvrables en moyenne pour une EIMT haut salaire'),('+ affichage','la période d’affichage préalable n’est pas comprise dans ces délais')])
@@ -34,7 +34,7 @@ reflexes=[
  ('Le travailleur dépose sa prolongation avant l’expiration de son permis.','S’il le fait à temps et que ses conditions restent les mêmes, il conserve son statut et peut continuer à travailler aux mêmes conditions jusqu’à la décision.'),
  ('Changement d’employeur ou de conditions importantes ?','IRCC recommande alors de déposer la demande au moins 30 jours avant l’expiration du permis actuel.'),
  ('Poste dispensé d’EIMT, au Québec :','pas d’EIMT ni de CAQ, mais dans la plupart des cas une nouvelle offre d’emploi à présenter par l’employeur au Portail des employeurs.')]
-ref=''.join(f'<tr><td valign="top" style="width:40px;padding:0 0 14px;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="width:28px;height:28px;line-height:28px;border:2px solid {ROSE};border-radius:16px;text-align:center;{FONT}font-size:13px;font-weight:700;color:{ROSE};">{i}</td></tr></table></td><td style="text-align:left;padding:3px 0 14px;{FONT}font-size:15px;line-height:1.6;color:{TXT};"><strong style="color:{NAVY};">{a}</strong> {b}</td></tr>' for i,(a,b) in enumerate(reflexes,1))
+ref=''.join(f'<tr><td valign="top" width="42" style="width:42px;padding:0 0 14px;"><img src="{IMG}/etape-{i}.png" width="28" height="28" alt="{i}" style="display:block;width:28px;height:28px;border:0;"></td><td style="text-align:left;padding:3px 0 14px;{FONT}font-size:15px;line-height:1.6;color:{TXT};"><strong style="color:{NAVY};">{a}</strong> {b}</td></tr>' for i,(a,b) in enumerate(reflexes,1))
 
 links=[('Le Courrier Frontenac · 07-10-2026','Les délais d’EIMT mettent des entreprises et des emplois en péril','La lettre du député Luc Berthold et les cas d’entreprises de sa région.','https://courrierfrontenac.qc.ca/actualites/les-delais-deimt-mettent-des-entreprises-et-des-emplois-en-peril/'),
  ('CIC News · 13-10-2026','LMIA processing times trend downward (en anglais)','Le détail des délais moyens d’EIMT par volet, mois par mois.','https://cicnews.com/2026/10/lmia-processing-times-trend-downward-1081284.html'),
@@ -60,29 +60,29 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 
 <!-- EN-TÊTE -->
 <tr><td class="px" style="text-align:left;background:{NAVY};padding:28px 32px 26px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-<td class="stack" valign="top" align="left" style="text-align:left;">
-<img src="{IMG}/logo-workin-group-blanc.png" width="150" alt="Workin Group" style="display:block;width:150px;height:auto;border:0;margin:0 0 18px;">
-<p style="text-align:left;margin:0 0 6px;{FONT}font-size:22px;line-height:1.25;font-weight:700;color:#ffffff;">L’infolettre immigration de vos embauches</p>
-<p style="text-align:left;margin:0 0 16px;{FONT}font-size:13.5px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p>
-<span style="display:inline-block;background:{ROSE};border-radius:20px;padding:6px 14px;{FONT}font-size:11.5px;letter-spacing:1px;font-weight:700;color:#ffffff;">OCTOBRE 2026</span>
-</td>
-<td class="stack center-m" valign="top" width="236" style="width:236px;text-align:center;">
-<table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
-<td valign="top" width="115" style="width:115px;text-align:center;padding:0 2px;">
-<img src="{IMG}/loic-rond.png" width="72" height="72" alt="Loïc Spyckerelle" style="display:inline-block;width:72px;height:72px;border:0;">
-<p style="text-align:center;margin:8px 0 2px;{FONT}font-size:13.5px;font-weight:700;color:#ffffff;">Loïc Spyckerelle</p>
-<p style="text-align:center;margin:0;{FONT}font-size:11px;line-height:1.4;color:#d9d6f0;">Fondateur de Workin Group</p>
-<p style="text-align:center;margin:4px 0 0;{FONT}font-size:10px;line-height:1.4;color:#ffffff;font-weight:600;">&nbsp;</p>
-</td><td valign="top" width="115" style="width:115px;text-align:center;padding:0 2px;">
-<img src="{IMG}/eric-saie-rond.png" width="72" height="72" alt="Eric Saie" style="display:inline-block;width:72px;height:72px;border:0;">
-<p style="text-align:center;margin:8px 0 2px;{FONT}font-size:13.5px;font-weight:700;color:#ffffff;">Eric Saie</p>
-<p style="text-align:center;margin:0;{FONT}font-size:11px;line-height:1.4;color:#d9d6f0;">Consultant réglementé en immigration canadienne</p>
-<p style="text-align:center;margin:4px 0 0;{FONT}font-size:10px;line-height:1.4;color:#ffffff;font-weight:600;">CRIC N° R533143<br>CIIQ N° 11929</p>
-</td>
+<img src="{IMG}/logo-workin-group-blanc.png" width="150" alt="Workin Group" style="display:block;width:150px;height:auto;border:0;margin:0 0 20px;">
+<p style="text-align:left;margin:0 0 6px;{FONT}font-size:24px;line-height:1.25;font-weight:700;color:#ffffff;">L’infolettre immigration de vos embauches</p>
+<p style="text-align:left;margin:0 0 18px;{FONT}font-size:14px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p>
+<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td style="text-align:left;padding:0 8px 6px 0;"><span style="display:inline-block;background:{ROSE};border-radius:20px;padding:7px 14px;{FONT}font-size:11.5px;letter-spacing:1px;font-weight:700;color:#ffffff;white-space:nowrap;">OCTOBRE 2026</span></td>
+<td style="text-align:left;padding:0 0 6px 0;"><span style="display:inline-block;border:1.5px solid #ffffff;border-radius:20px;padding:6px 14px;{FONT}font-size:11.5px;letter-spacing:.5px;font-weight:600;color:#ffffff;white-space:nowrap;">CRIC N° R533143 · CIIQ N° 11929</span></td>
 </tr></table>
-</td></tr></table></td></tr>
+</td></tr>
 <tr><td style="text-align:left;height:6px;background:{ROSE};font-size:0;line-height:0;">&nbsp;</td></tr>
+<!-- ÉQUIPE -->
+<tr><td class="px" style="text-align:left;background:{LILAS};padding:18px 32px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td class="stack" valign="middle" width="50%" style="text-align:left;padding:4px 0;">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td valign="middle" width="64" style="width:64px;padding-right:12px;"><img src="{IMG}/loic-rond-petit.png" width="56" height="56" alt="Loïc Spyckerelle" style="display:block;width:56px;height:56px;border:0;"></td>
+<td valign="middle" style="text-align:left;"><p style="text-align:left;margin:0;{FONT}font-size:15px;font-weight:700;color:{NAVY};">Loïc Spyckerelle</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.4;color:{TXT};">Fondateur de Workin Group</p></td>
+</tr></table></td>
+<td class="stack" valign="middle" width="50%" style="text-align:left;padding:4px 0;">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td valign="middle" width="64" style="width:64px;padding-right:12px;"><img src="{IMG}/eric-saie-rond-petit.png" width="56" height="56" alt="Eric Saie" style="display:block;width:56px;height:56px;border:0;"></td>
+<td valign="middle" style="text-align:left;"><p style="text-align:left;margin:0;{FONT}font-size:15px;font-weight:700;color:{NAVY};">Eric Saie</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.4;color:{TXT};">Consultant réglementé en immigration canadienne</p></td>
+</tr></table></td>
+</tr></table></td></tr>
 
 <!-- INTRO -->
 <tr><td class="px" style="text-align:left;padding:30px 32px 0;">
@@ -131,7 +131,7 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
  ('Un permis lié à votre entreprise :','le jeune professionnel obtient un permis de travail propre à l’employeur, pour acquérir de l’expérience dans son métier ou son domaine d’études.'),
  ('Workin s’occupe de tout :','recrutement en France, montage complet du dossier, offre d’emploi au Portail des employeurs et suivi jusqu’à l’arrivée.')])}
 <p style="text-align:left;margin:4px 0 16px;{FONT}font-size:14.5px;line-height:1.6;color:#ffffff;">La saison 2026 est fermée, mais vos recrutements 2027 se préparent dès maintenant : nous montons chaque dossier pour qu’il soit déposé dès la réouverture des bassins.</p>
-{button('Un poste à pourvoir en 2027 ? Écrivez-nous','mailto:eric@workin-group.com?subject=Recrutement%202027%20-%20Jeune%20professionnel')}
+{button('Un poste à pourvoir en 2027 ? Écrivez-nous','mailto:eric%40workin-group.com?subject=Recrutement%202027%20-%20Jeune%20professionnel')}
 <p style="text-align:left;margin:16px 0 0;{FONT}font-size:11px;line-height:1.5;color:#b9b5dc;">Source : IRCC, « International Experience Canada (IEC) – [R204(d) – C21] », page modifiée le 24-12-2025, consultée le 27-10-2026.</p>
 </td></tr></table></td></tr>
 
@@ -158,7 +158,7 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 <td valign="top">
 <p style="text-align:left;margin:0;{FONT}font-size:15px;font-weight:700;color:{NAVY};">Eric Saie</p>
 <p style="text-align:left;margin:0;{FONT}font-size:13px;line-height:1.5;color:{TXT};">Responsable du Pôle Immigration — CRIC #R533143 · CIIQ #11929<br>
-<a href="tel:+15149450070" style="color:{TXT};text-decoration:none;">+1 514 945-0070</a> · <a href="mailto:eric@workin-group.com" style="color:{NAVY};">eric@workin-group.com</a><br>
+<a href="tel:+15149450070" style="color:{TXT};text-decoration:none;">+1 514 945-0070</a> · <a href="mailto:eric%40workin-group.com" style="color:{NAVY};">eric&#64;workin-group.com</a><br>
 Montréal, Canada et Lille, France · <a href="https://workin-group.com/" style="color:{ROSE};font-weight:600;">workin-group.com</a></p>
 </td></tr></table>
 <table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:18px;"><tr>
@@ -167,7 +167,7 @@ Montréal, Canada et Lille, France · <a href="https://workin-group.com/" style=
 <p style="text-align:left;margin:0;{FONT}font-size:15px;font-weight:700;color:{NAVY};">Loïc Spyckerelle</p>
 <p style="text-align:left;margin:0;{FONT}font-size:13px;line-height:1.5;color:{TXT};">Fondateur de Workin Group</p>
 </td></tr></table>
-<p style="text-align:left;margin:16px 0 0;{FONT}font-size:13px;font-style:italic;color:{ROSE};">Notre engagement, votre succès</p>
+<p style="text-align:left;margin:16px 0 0;{FONT}font-size:13px;font-style:italic;color:{ROSE};">Notre engagement, Votre succès</p>
 
 </td></tr></table></td></tr>
 
