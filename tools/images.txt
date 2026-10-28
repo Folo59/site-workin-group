@@ -14,3 +14,4 @@ https://images.unsplash.com/photo-1580324081424-767a103c43c0?auto=format&fit=cro
 https://images.unsplash.com/photo-1593534231822-063a269c9ba5?auto=format&fit=crop&w=1100&h=1400&q=80 assets/social/src/faq-installation.jpg
 https://images.unsplash.com/photo-1568904140419-4316e6fa2009?auto=format&fit=crop&crop=faces&w=1100&h=1400&q=80 assets/social/src/faq-carriere.jpg
 https://images.unsplash.com/photo-1583001809873-a128495da465?q=92&w=3382 assets/social/src/kakemono-automne.jpg
+https://images.unsplash.com/photo-1589926874296-02a9c51f855c?q=92&w=3648 assets/social/src/kakemono-canada.jpg
