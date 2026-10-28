@@ -15,7 +15,7 @@ def callout(t):
 def source(t):
     return f'<p style="text-align:left;margin:0;{FONT}font-size:11.5px;line-height:1.5;color:{GRIS};">Source{"s" if ";" in t else ""} : {t}</p>'
 def section(n,kicker,title,body):
-    return f'''<tr><td style="text-align:left;padding:30px 32px 0;">
+    return f'''<tr><td style="text-align:left;padding:30px 26px 0;">
 <p style="text-align:left;margin:0 0 8px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">{kicker}</p>
 <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr>
 <td valign="top" width="30" style="width:30px;padding-top:1px;"><img src="{IMG}/num-{n}.png" width="30" height="30" alt="{n}" style="display:block;width:30px;height:30px;border:0;"></td>
@@ -24,7 +24,7 @@ def section(n,kicker,title,body):
 def button(label,href):
     return f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td align="center" style="text-align:center;"><table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;"><tr><td align="center" style="text-align:center;background:{ROSE};border-radius:30px;"><a href="{href}" style="display:inline-block;padding:14px 28px;{FONT}font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;text-align:center;">{label}</a></td></tr></table></td></tr></table>'
 
-stats=''.join(f'<td valign="top" width="33%" style="padding:6px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:16px 14px;"><p style="text-align:left;margin:0 0 4px;{FONT}font-size:20px;font-weight:700;color:{ROSE};line-height:1.15;white-space:nowrap;">{a}</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.45;color:{NAVY};">{b}</p></td></tr></table></td>' for a,b in [
+stats=''.join(f'<div style="display:inline-block;vertical-align:top;width:100%;max-width:178px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding:5px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:16px 14px;"><p style="text-align:left;margin:0 0 4px;{FONT}font-size:20px;font-weight:700;color:{ROSE};line-height:1.15;white-space:nowrap;">{a}</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.45;color:{NAVY};">{b}</p></td></tr></table></td></tr></table></div>' for a,b in [
  ('82 jours','ouvrables en moyenne pour une EIMT bas salaire'),('98 jours','ouvrables en moyenne pour une EIMT haut salaire'),('+ affichage','la période d’affichage préalable n’est pas comprise dans ces délais')])
 
 reflexes=[
@@ -55,36 +55,30 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 <body style="margin:0;padding:0;background:#eeecf6;">
 <!--email_off-->
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Saison Jeunes professionnels fermée, délais d’EIMT, Montréal bloquée jusqu’en janvier, et six réflexes pour vos renouvellements.</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eeecf6;"><tr><td align="center" style="padding:24px 10px;">
-<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" style="text-align:left;width:600px;background:#ffffff;border-radius:14px;overflow:hidden;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eeecf6;"><tr><td align="center" style="padding:16px 8px;">
+<table role="presentation" class="wrap" width="100%" align="center" cellpadding="0" cellspacing="0" style="text-align:left;width:100%;max-width:600px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
 
 <!-- EN-TÊTE -->
-<tr><td class="px" style="text-align:left;background:{NAVY};padding:28px 32px 18px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-<td class="stack" valign="top" style="text-align:left;padding-right:18px;">
-<img src="{IMG}/logo-workin-group-blanc.png" width="140" alt="Workin Group" style="display:block;width:140px;height:auto;border:0;margin:0 0 18px;">
+<tr><td class="px" style="text-align:left;background:{NAVY};padding:28px 26px 18px;">
+<div style="font-size:0;line-height:0;"><div style="display:inline-block;vertical-align:middle;width:100%;max-width:300px;padding:0 0 16px;text-align:left;"><img src="{IMG}/logo-workin-group-blanc.png" width="140" alt="Workin Group" style="display:block;width:140px;height:auto;border:0;margin:0 0 18px;">
 <p style="text-align:left;margin:0 0 6px;{FONT}font-size:22px;line-height:1.25;font-weight:700;color:#ffffff;">L’infolettre immigration de vos embauches</p>
-<p style="text-align:left;margin:0;{FONT}font-size:13.5px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p>
-</td>
-<td class="stack center-m" valign="middle" width="236" style="width:236px;text-align:left;border-left:1px solid #4a4580;padding-left:18px;">
-<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr>
+<p style="text-align:left;margin:0;{FONT}font-size:13.5px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p></div><div style="display:inline-block;vertical-align:middle;width:100%;max-width:240px;text-align:left;"><table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr>
 <td valign="middle" width="60" style="width:60px;padding-right:10px;"><img src="{IMG}/loic-rond.png" width="60" height="60" alt="Loïc Spyckerelle" style="display:block;width:60px;height:60px;border:0;"></td>
 <td valign="middle" style="text-align:left;"><p style="text-align:left;margin:0;{FONT}font-size:14px;font-weight:700;line-height:1.3;color:#ffffff;">Loïc Spyckerelle</p><p style="text-align:left;margin:2px 0 0;{FONT}font-size:11.5px;line-height:1.4;color:#d9d6f0;">Fondateur de Workin Group</p></td>
 </tr></table><table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 14px;"><tr>
 <td valign="middle" width="60" style="width:60px;padding-right:10px;"><img src="{IMG}/eric-saie-rond.png" width="60" height="60" alt="Eric Saie" style="display:block;width:60px;height:60px;border:0;"></td>
 <td valign="middle" style="text-align:left;"><p style="text-align:left;margin:0;{FONT}font-size:14px;font-weight:700;line-height:1.3;color:#ffffff;">Eric Saie</p><p style="text-align:left;margin:2px 0 0;{FONT}font-size:11.5px;line-height:1.4;color:#d9d6f0;">Consultant réglementé en immigration canadienne</p></td>
-</tr></table>
-</td></tr></table>
+</tr></table></div></div>
 <div style="height:16px;line-height:16px;font-size:0;">&nbsp;</div>
 <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-<td style="text-align:left;padding:0 8px 10px 0;"><span style="display:inline-block;background:{ROSE};border-radius:20px;padding:7px 13px;{FONT}font-size:11px;letter-spacing:1px;font-weight:700;color:#ffffff;white-space:nowrap;">OCTOBRE 2026</span></td>
-<td style="text-align:left;padding:0 0 10px 0;"><span style="display:inline-block;border:1.5px solid #ffffff;border-radius:20px;padding:6px 12px;{FONT}font-size:11px;letter-spacing:.3px;font-weight:600;color:#ffffff;white-space:nowrap;">CRIC N° R533143 · CIIQ N° 11929</span></td>
+<td style="text-align:left;padding:0 8px 8px 0;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:{ROSE};border-radius:20px;padding:7px 13px;{FONT}font-size:11px;letter-spacing:1px;font-weight:700;color:#ffffff;white-space:nowrap;">OCTOBRE 2026</td></tr></table></td>
+<td style="text-align:left;padding:0 0 8px 0;"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="border:1px solid #ffffff;border-radius:20px;padding:6px 12px;{FONT}font-size:11px;letter-spacing:.3px;font-weight:600;color:#ffffff;white-space:nowrap;">CRIC N° R533143 · CIIQ N° 11929</td></tr></table></td>
 </tr></table>
 </td></tr>
 <tr><td style="text-align:left;height:6px;background:{ROSE};font-size:0;line-height:0;">&nbsp;</td></tr>
 
 <!-- INTRO -->
-<tr><td class="px" style="text-align:left;padding:30px 32px 0;">
+<tr><td class="px" style="text-align:left;padding:30px 26px 0;">
 {p('Bonjour,')}
 {p('Chaque mois, le Pôle Immigration de Workin vous résume l’actualité qui touche directement vos embauches de travailleurs étrangers, et ce qu’elle change concrètement pour vous. Ce mois-ci, trois nouvelles comptent, et quelques réflexes à prendre dès maintenant pour vos renouvellements.')}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:18px 22px;">
@@ -103,7 +97,7 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 {section(2,'Actualité','Délais des EIMT : un député demande à Ottawa d’agir',
  p('Le Courrier Frontenac rapporte, le 7 octobre, que le député fédéral Luc Berthold (Mégantic—L’Érable—Lotbinière) a écrit à la ministre fédérale responsable de l’Emploi pour lui demander de réduire les délais de traitement des études d’impact sur le marché du travail (EIMT), en faisant état d’entreprises de sa circonscription pénalisées par ces délais.')+
  p('Côté chiffres, Emploi et Développement social Canada (EDSC) publie ses délais moyens de traitement. Pour septembre 2026 :')+
- f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 10px;"><tr>{stats}</tr></table>'+
+ f'<div style="font-size:0;line-height:0;margin:0 -5px 10px;">{stats}</div>'+
  callout('En clair : une EIMT se compte en mois, pas en semaines. Les renouvellements se lancent tôt (voir nos six réflexes plus bas).')+
  source('Le Courrier Frontenac, « Les délais d’EIMT mettent des entreprises et des emplois en péril », 07-10-2026 ; EDSC, « Labour Market Impact Assessment application processing times », page modifiée le 07-10-2026, consultée le 27-10-2026.'))}
 
@@ -121,7 +115,7 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
  source('IRCC, « Extend a temporary worker’s permit », page modifiée le 14-10-2026 ; EDSC, « Hire a temporary foreign worker in a low-wage position », page modifiée le 07-10-2026 ; IRCC, Centre d’aide, « I work in Quebec. How can I extend my work permit? », page modifiée le 28-09-2026 ; consultées le 27-10-2026.'))}
 
 <!-- NOTRE SPÉCIALITÉ -->
-<tr><td class="px" style="text-align:left;padding:32px 32px 0;">
+<tr><td class="px" style="text-align:left;padding:32px 26px 0;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:{NAVY};border-radius:14px;padding:26px 26px 24px;">
 <p style="text-align:left;margin:0 0 6px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Notre spécialité</p>
 <p style="text-align:left;margin:0 0 14px;{FONT}font-size:20px;font-weight:700;line-height:1.3;color:#ffffff;">Pourquoi recruter un Jeune professionnel</p>
@@ -135,20 +129,20 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 </td></tr></table></td></tr>
 
 <!-- PAR SECTEUR -->
-<tr><td class="px" style="text-align:left;padding:30px 32px 0;">
+<tr><td class="px" style="text-align:left;padding:30px 26px 0;">
 <p style="text-align:left;margin:0 0 12px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Par secteur</p>
 {secteur('Restauration et hôtellerie','La saison estivale 2027 se prépare maintenant. Un cuisinier ou un employé de salle recruté en France cet automne pourra déposer son profil dès la réouverture des bassins si son dossier est prêt. Et si vos équipes comptent des travailleurs sous EIMT, vérifiez dès aujourd’hui leurs dates d’expiration : dans la région de Montréal, certaines demandes d’EIMT pour des postes à bas salaire ne sont pas traitées jusqu’au 7 janvier 2027.')}
 {secteur('Alimentation et commerce de détail','Gérants de rayon, bouchers, boulangers : ces postes se préparent bien à l’avance. Nos dossiers Jeunes professionnels avancent pendant la fermeture du bassin, pour être déposés dès la réouverture. Si vous prévoyez un remplacement ou un nouveau poste en 2027, c’est le moment d’en parler.')}
 </td></tr>
 
 <!-- POUR ALLER PLUS LOIN -->
-<tr><td class="px" style="text-align:left;padding:20px 32px 0;">
+<tr><td class="px" style="text-align:left;padding:20px 26px 0;">
 <p style="text-align:left;margin:0 0 14px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Pour aller plus loin · À lire ailleurs</p>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">{lk}</table>
 </td></tr>
 
 <!-- SIGNATURE -->
-<tr><td class="px" style="text-align:left;padding:14px 32px 30px;">
+<tr><td class="px" style="text-align:left;padding:14px 26px 30px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #e3e0f2;"><tr><td style="text-align:left;padding-top:22px;">
 {p('Une question sur l’un de vos dossiers ou sur un recrutement à venir ? Nous restons à votre disposition par courriel.')}
 {p('Bonne journée,','margin-bottom:16px;')}
@@ -160,18 +154,13 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 <a href="tel:+15149450070" style="color:{TXT};text-decoration:none;">+1 514 945-0070</a> · <a href="mailto:eric%40workin-group.com" style="color:{NAVY};">eric&#64;workin-group.com</a><br>
 Montréal, Canada et Lille, France · <a href="https://workin-group.com/" style="color:{ROSE};font-weight:600;">workin-group.com</a></p>
 </td></tr></table>
-<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:18px;"><tr>
-<td valign="top" style="padding-right:14px;"><img src="{IMG}/loic-rond-petit.png" width="56" height="56" alt="" style="display:block;width:56px;height:56px;border:0;"></td>
-<td valign="middle">
-<p style="text-align:left;margin:0;{FONT}font-size:15px;font-weight:700;color:{NAVY};">Loïc Spyckerelle</p>
-<p style="text-align:left;margin:0;{FONT}font-size:13px;line-height:1.5;color:{TXT};">Fondateur de Workin Group</p>
-</td></tr></table>
-<p style="text-align:left;margin:16px 0 0;{FONT}font-size:13px;font-style:italic;color:{ROSE};">Notre engagement, Votre succès</p>
+
+<p style="text-align:left;margin:12px 0 0;{FONT}font-size:13px;font-style:italic;color:{ROSE};">Notre engagement, Votre succès</p>
 
 </td></tr></table></td></tr>
 
 <!-- MENTION -->
-<tr><td class="px" style="text-align:left;background:{LILAS};padding:18px 32px;">
+<tr><td class="px" style="text-align:left;background:{LILAS};padding:18px 26px;">
 <p style="text-align:left;margin:0;{FONT}font-size:11.5px;line-height:1.55;color:{GRIS};">Cette infolettre fournit une information générale à jour au 27 octobre 2026. Elle ne constitue pas un avis sur votre situation particulière : chaque dossier s’examine au cas par cas.</p>
 </td></tr>
 </table>
