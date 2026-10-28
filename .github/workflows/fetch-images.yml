@@ -19,7 +19,7 @@ jobs:
             case "$url" in \#*) continue;; esac
             [ -f "$dest" ] && continue
             mkdir -p "$(dirname "$dest")"
-            curl -fsSL "$url" -o "$dest"
+            curl -fsSL "$url" -o "$dest" || { echo "FAIL $dest"; rm -f "$dest"; continue; }
             echo "ok $dest"
           done < tools/images.txt
       - name: Enregistrer
