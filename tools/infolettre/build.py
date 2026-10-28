@@ -59,14 +59,11 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 <table role="presentation" class="wrap" width="100%" align="center" cellpadding="0" cellspacing="0" style="text-align:left;width:100%;max-width:600px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
 
 <!-- EN-TÊTE -->
-<tr><td class="px" style="text-align:left;background:{NAVY};padding:26px 26px 18px;">
+<tr><td class="px" style="text-align:left;background:{NAVY};padding:24px 26px 18px;">
 <div style="font-size:0;line-height:0;text-align:left;">
-<div style="display:inline-block;vertical-align:middle;width:100%;max-width:290px;padding:0 0 18px;text-align:left;">
-<table role="presentation" cellpadding="0" cellspacing="0" align="left" style="margin:0 0 18px;"><tr><td align="left" style="text-align:left;"><img src="{IMG}/logo-workin-group-blanc.png" width="140" alt="Workin Group" style="display:block;width:140px;height:auto;border:0;"></td></tr></table>
-<div style="clear:both;font-size:0;line-height:0;">&nbsp;</div>
-<p style="text-align:left;margin:0 0 6px;{FONT}font-size:22px;line-height:1.25;font-weight:700;color:#ffffff;">L’infolettre immigration de vos embauches</p>
-<p style="text-align:left;margin:0;{FONT}font-size:13.5px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p>
-</div><div style="display:inline-block;vertical-align:middle;width:100%;max-width:258px;padding:0 0 18px;text-align:left;">
+<div style="display:inline-block;vertical-align:middle;width:100%;max-width:256px;padding:0 0 18px;text-align:left;">
+<table role="presentation" cellpadding="0" cellspacing="0" align="left" style="margin:0;"><tr><td align="left" style="text-align:left;padding:0;"><img src="{IMG}/logo-workin-group-blanc.png" width="150" alt="Workin Group" align="left" style="display:block;width:150px;height:auto;border:0;margin:0;float:none;"></td></tr></table>
+</div><div style="display:inline-block;vertical-align:middle;width:100%;max-width:280px;padding:0 0 4px;text-align:left;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;"><tr><td style="text-align:left;background:#38326f;border:1px solid #4d4789;border-radius:14px;padding:14px 14px;">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%;margin:0 0 12px;"><tr>
 <td valign="middle" width="58" style="width:58px;padding-right:10px;"><img src="{IMG}/loic-rond.png" width="58" height="58" alt="Loïc Spyckerelle" style="display:block;width:58px;height:58px;border:0;"></td>
@@ -77,7 +74,13 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 </tr></table>
 </td></tr></table>
 </div></div>
+<div style="height:20px;line-height:20px;font-size:0;border-top:1px solid #443e7e;margin-top:14px;">&nbsp;</div>
+<p style="text-align:left;margin:0 0 6px;{FONT}font-size:22px;line-height:1.25;font-weight:700;color:#ffffff;">L’infolettre immigration de vos embauches</p>
+<p style="text-align:left;margin:0;{FONT}font-size:13.5px;line-height:1.5;color:#d9d6f0;">Le point du Pôle Immigration sur ce qui change pour vos travailleurs étrangers</p>
+
+<div style="height:16px;line-height:16px;font-size:0;">&nbsp;</div>
 <div style="font-size:0;line-height:0;text-align:left;"><div style="display:inline-block;vertical-align:top;margin:0 8px 8px 0;"><table role="presentation" width="104" cellpadding="0" cellspacing="0" style="width:104px;"><tr><td align="center" style="text-align:center;background:{ROSE};border-radius:20px;padding:7px 0;{FONT}font-size:10.5px;letter-spacing:1px;font-weight:700;line-height:1.3;color:#ffffff;white-space:nowrap;">OCTOBRE 2026</td></tr></table></div><div style="display:inline-block;vertical-align:top;margin:0 8px 8px 0;"><table role="presentation" width="172" cellpadding="0" cellspacing="0" style="width:172px;"><tr><td align="center" style="text-align:center;border:1px solid #ffffff;border-radius:20px;padding:6px 0;{FONT}font-size:10.5px;letter-spacing:.3px;font-weight:600;line-height:1.3;color:#ffffff;white-space:nowrap;">CRIC R533143 · CIIQ 11929</td></tr></table></div></div>
+
 </td></tr>
 <tr><td style="text-align:left;height:6px;background:{ROSE};font-size:0;line-height:0;">&nbsp;</td></tr>
 
@@ -159,7 +162,7 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 Montréal, Canada et Lille, France · <a href="https://workin-group.com/" style="color:{ROSE};font-weight:600;">workin-group.com</a></p>
 </td></tr></table>
 
-<p style="text-align:left;margin:12px 0 0;{FONT}font-size:13px;font-style:italic;color:{ROSE};">Notre engagement, Votre succès</p>
+<p style="text-align:center;margin:26px 0 0;{FONT}font-size:18px;font-style:italic;font-weight:600;color:{ROSE};">Notre engagement, Votre succès</p>
 
 </td></tr></table></td></tr>
 
