@@ -29,3 +29,4 @@ https://images.unsplash.com/photo-1596513010486-e3b472d162ed?w=600&q=70 assets/s
 https://images.unsplash.com/photo-1493838952631-2bce5dad8e54?w=600&q=70 assets/social/src/cand/neige-outfit.jpg
 https://images.unsplash.com/photo-1509421089368-34a2738d2977?w=600&q=70 assets/social/src/cand/mont-royal.jpg
 https://images.unsplash.com/photo-1596513010486-e3b472d162ed?w=2400&q=90 assets/social/src/kakemono-neige.jpg
+https://images.unsplash.com/photo-1596513010486-e3b472d162ed?q=95 assets/social/src/kakemono-neige-original.jpg
