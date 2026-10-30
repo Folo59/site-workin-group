@@ -30,3 +30,6 @@ https://images.unsplash.com/photo-1493838952631-2bce5dad8e54?w=600&q=70 assets/s
 https://images.unsplash.com/photo-1509421089368-34a2738d2977?w=600&q=70 assets/social/src/cand/mont-royal.jpg
 https://images.unsplash.com/photo-1596513010486-e3b472d162ed?w=2400&q=90 assets/social/src/kakemono-neige.jpg
 https://images.unsplash.com/photo-1596513010486-e3b472d162ed?q=95 assets/social/src/kakemono-neige-original.jpg
+https://images.unsplash.com/photo-1758611972678-bc3b29b4718f?auto=format&fit=crop&w=1600&q=85 assets/social/src/fin-permis-a.jpg
+https://images.unsplash.com/photo-1758519288948-e3c87d2d78d8?auto=format&fit=crop&w=1600&q=85 assets/social/src/fin-permis-b.jpg
+https://images.unsplash.com/photo-1758876202980-0a28b744fb24?auto=format&fit=crop&w=1600&q=85 assets/social/src/fin-permis-c.jpg
