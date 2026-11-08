@@ -31,8 +31,4 @@ https://images.unsplash.com/photo-1509421089368-34a2738d2977?w=600&q=70 assets/s
 https://images.unsplash.com/photo-1596513010486-e3b472d162ed?w=2400&q=90 assets/social/src/kakemono-neige.jpg
 https://images.unsplash.com/photo-1596513010486-e3b472d162ed?q=95 assets/social/src/kakemono-neige-original.jpg
 https://images.unsplash.com/photo-1758519288948-e3c87d2d78d8?auto=format&fit=crop&w=1600&q=85 assets/social/src/fin-de-permis.jpg
-https://images.unsplash.com/photo-1653253719603-a5679c9f4205?auto=format&fit=crop&w=1600&q=85 assets/social/src/reservoir-propane.jpg
-https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=85 assets/social/src/tech-a.jpg
-https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1600&q=85 assets/social/src/tech-b.jpg
-https://images.unsplash.com/photo-1625148230889-8195e85aae6b?auto=format&fit=crop&w=1600&q=85 assets/social/src/tech-c.jpg
-https://images.unsplash.com/photo-1660330589693-99889d60181e?auto=format&fit=crop&w=1600&q=85 assets/social/src/tech-d.jpg
+https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=85 assets/social/src/technicien-gaz.jpg
