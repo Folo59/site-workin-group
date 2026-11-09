@@ -25,8 +25,7 @@ TITLES={'toulouse':'Demain, on vous attend à <span class=r>Toulouse</span>','ly
 out={}
 # Posts ville 1080x1350
 for k,c in C.items():
-    body=f"""<div class=blob style='width:520px;height:520px;right:-180px;top:-180px;opacity:.18'></div>
-<div style='position:absolute;left:80px;top:90px;right:80px'>
+    body=f"""<div style='position:absolute;left:80px;top:90px;right:80px'>
 <span class=tag style='font-size:24px;padding:14px 26px'>Salon Canada · {c['ville']}</span>
 <h1 style='font-size:76px;margin-top:34px'>{TITLES[k]}</h1>
 <p style='font-size:32px;margin-top:22px;color:#cfcbef;line-height:1.35'>Étudier, s’installer, travailler, vivre au Canada</p></div>
@@ -39,8 +38,7 @@ for k,c in C.items():
     out[f'post-{k}']=(1080,1350,body)
 # Stories jour J 1080x1920
 for k,c in C.items():
-    body=f"""<div class=blob style='width:700px;height:700px;right:-260px;top:-200px;opacity:.18'></div>
-<div style='position:absolute;left:90px;right:90px;top:270px'>
+    body=f"""<div style='position:absolute;left:90px;right:90px;top:270px'>
 <span class=tag style='font-size:28px;padding:16px 30px'>C’est aujourd’hui</span>
 <h1 style='font-size:128px;margin-top:44px'>Salon Canada<br><span class=r>{c['ville']}</span></h1>
 <div class=info style='font-size:46px;line-height:1.3;margin-top:50px;gap:26px'>
@@ -51,14 +49,12 @@ for k,c in C.items():
     out[f'story-{k}']=(1080,1920,body)
 # Tournée post + story
 cities=''.join(f"<div class=city><b>{c['ville']}</b><span>{c['d']} · {c['h']}<br>{c['lieu']}</span></div>" for c in C.values())
-out['post-tournee']=(1080,1350,f"""<div class=blob style='width:520px;height:520px;right:-180px;top:-180px;opacity:.18'></div>
-<div style='position:absolute;left:80px;right:80px;top:80px'><span class=tag style='font-size:24px;padding:14px 26px'>Salons Canada · Air Canada</span>
+out['post-tournee']=(1080,1350,f"""<div style='position:absolute;left:80px;right:80px;top:80px'><span class=tag style='font-size:24px;padding:14px 26px'>Salons Canada · Air Canada</span>
 <h1 style='font-size:72px;margin-top:30px'>4 salons, 4 villes :<br>l’équipe <span class=r>Workin</span> y sera</h1>
 <div style='display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:50px'>{cities.replace('<div class=city>','<div class=city style="padding:34px 34px">').replace('<b>','<b style="font-size:50px">').replace('<span>','<span style="font-size:29px">')}</div>
 <p style='font-size:30px;margin-top:40px;color:#cfcbef;line-height:1.4'>Étudier, s’installer, travailler, vivre au Canada.<br>Venez nous poser vos questions sur le travail au Québec 👋</p></div>
 <div class=team style='left:80px;bottom:80px;font-size:34px;padding:26px 40px'>L’équipe <b>Workin</b> sera présente 👋</div>""")
-out['story-tournee']=(1080,1920,f"""<div class=blob style='width:700px;height:700px;right:-260px;top:-200px;opacity:.18'></div>
-<div style='position:absolute;left:90px;right:90px;top:270px'><span class=tag style='font-size:28px;padding:16px 30px'>On part en tournée</span>
+out['story-tournee']=(1080,1920,f"""<div style='position:absolute;left:90px;right:90px;top:270px'><span class=tag style='font-size:28px;padding:16px 30px'>On part en tournée</span>
 <h1 style='font-size:96px;margin-top:40px'>4 salons Canada,<br>l’équipe <span class=r>Workin</span> y sera</h1>
 <div style='display:flex;flex-direction:column;gap:26px;margin-top:56px'>{cities.replace('<div class=city>','<div class=city style="padding:32px 40px">').replace('<b>','<b style="font-size:56px">').replace('<span>','<span style="font-size:36px">')}</div></div>""")
 for n,(w,h,b) in out.items(): open(n+'.html','w').write(page(w,h,b))
