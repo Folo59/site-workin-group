@@ -57,5 +57,8 @@ out['post-tournee']=(1080,1350,f"""<div style='position:absolute;left:80px;right
 out['story-tournee']=(1080,1920,f"""<div style='position:absolute;left:90px;right:90px;top:270px'><span class=tag style='font-size:28px;padding:16px 30px'>On part en tournée</span>
 <h1 style='font-size:96px;margin-top:40px'>4 salons Canada,<br>l’équipe <span class=r>Workin</span> y sera</h1>
 <div style='display:flex;flex-direction:column;gap:26px;margin-top:56px'>{cities.replace('<div class=city>','<div class=city style="padding:32px 40px">').replace('<b>','<b style="font-size:56px">').replace('<span>','<span style="font-size:36px">')}</div></div>""")
+T2={'toulouse':'Le 18 novembre, on vous attend à <span class=r>Toulouse</span>','lyon':'Le 25 novembre, cap sur <span class=r>Lyon</span>','lille':'Le 28 novembre, on joue à domicile : <span class=r>Lille</span>','paris':'Dernière date : <span class=r>Paris</span>'}
+for k in C:
+    out['carrousel-'+k]=(1080,1350,out['post-'+k][2].replace(TITLES[k],T2[k]))
 for n,(w,h,b) in out.items(): open(n+'.html','w').write(page(w,h,b))
 json.dump({n:[w,h] for n,(w,h,b) in out.items()},open('list.json','w'))
