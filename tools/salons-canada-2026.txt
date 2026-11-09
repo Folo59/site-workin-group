@@ -1,0 +1,11 @@
+# Salons Canada Air Canada 2026 : publications (visuels : assets/social/salons-canada-2026/)
+# date | publication | plateformes | statut
+2026-11-09 | post-tournee + story-tournee | Instagram Post+Story, Facebook, LinkedIn | publié (IG https://www.instagram.com/p/DfhNf8sl4gI/ · FB post 107181248708191_1122784097165106 · LI urn:li:share:7525518039224684544)
+2026-11-17 | post-toulouse | Instagram, Facebook, LinkedIn | en attente de validation
+2026-11-18 | story-toulouse | Story Instagram | en attente de validation
+2026-11-23 | post-lyon | Instagram, Facebook, LinkedIn | en attente de validation
+2026-11-25 | story-lyon | Story Instagram | en attente de validation
+2026-11-26 | post-lille | Instagram, Facebook, LinkedIn | en attente de validation
+2026-11-28 | story-lille | Story Instagram | en attente de validation
+2026-11-30 | post-paris | Instagram, Facebook, LinkedIn | en attente de validation
+2026-12-02 | story-paris | Story Instagram | en attente de validation
