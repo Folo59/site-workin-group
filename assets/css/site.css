@@ -936,7 +936,7 @@ html, body { overflow-x: clip; }
 .checksplit__card a { color: var(--sand-deep); }
 @media (max-width: 900px) { .checksplit { padding: 26px 18px; gap: 24px; border-radius: 22px; } }
 
-.hero--photo { background: var(--sand); border-bottom: 0; }
+.hero--photo { background: #e4e9fa; border-bottom: 0; }
 .hero--photo .hero__grid { gap: 48px; }
 .hero--photo .hero__img { box-shadow: -18px 18px 0 0 var(--navy), var(--shadow); }
 @media (max-width: 820px) { .hero--photo .hero__img { box-shadow: -10px 10px 0 0 var(--navy); margin-left: 10px; width: calc(100% - 10px); } }
