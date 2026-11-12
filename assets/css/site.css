@@ -1236,3 +1236,50 @@ html, body { overflow-x: clip; }
 @media (max-width: 980px) { .vfaces { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 560px) { .vfaces { grid-template-columns: 1fr; } }
 .vtabs + .btn-row { margin-top: 32px; }
+
+/* Témoignages vidéo en carrousel, avec bouton de lecture visible */
+.vblock { margin-top: 34px; }
+.vblock__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.vblock__head h3 { font-size: 19px; }
+.vblock__head p { margin: 4px 0 0; font-size: 13.5px; max-width: 640px; }
+.vblock__hint { font-size: 12.5px; font-weight: 600; color: var(--rose-text, var(--rose)); white-space: nowrap; }
+.section--navy .vblock__hint { color: #ff7ca6; }
+.vcarousel { margin-top: 16px; }
+.vcarousel .carousel__track { grid-auto-columns: calc((100% - 60px) / 4); }
+.vcarousel--reels .carousel__track { grid-auto-columns: calc((100% - 80px) / 5); }
+.vcarousel .carousel__btn { width: 42px; height: 42px; font-size: 22px; top: 38%; z-index: 2; }
+.vcard { margin: 0; display: flex; flex-direction: column; gap: 9px; }
+.vcard__media { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--navy); box-shadow: var(--shadow); }
+.vcard video { width: 100%; height: auto; display: block; aspect-ratio: 1 / 1; object-fit: cover; }
+.vcarousel--reels .vcard video { aspect-ratio: 9 / 16; }
+.vcard__play { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; padding: 0 10px 16px; border: 0; cursor: pointer; font: inherit; color: var(--white); background: linear-gradient(to top, rgba(20,17,50,.72) 0%, rgba(20,17,50,0) 45%); }
+.vcard__icon { width: 58px; height: 58px; border-radius: 50%; background: var(--rose); display: grid; place-items: center; box-shadow: 0 6px 18px rgba(234,52,111,.45); transition: transform .2s; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.vcard__icon svg { width: 22px; height: 22px; margin-left: 3px; fill: var(--white); }
+.vcard__play:hover .vcard__icon, .vcard__play:focus-visible .vcard__icon { transform: translate(-50%,-50%) scale(1.08); }
+.vcard__cta { font-size: 12.5px; font-weight: 600; background: rgba(255,255,255,.16); backdrop-filter: blur(4px); border-radius: 999px; padding: 5px 12px; }
+.vcard blockquote { margin: 0; font-size: 13px; line-height: 1.5; font-style: italic; }
+.vcard figcaption { font-size: 12px; line-height: 1.45; }
+.vcard figcaption strong { display: block; color: var(--navy); font-size: 13.5px; }
+.section--navy .vcard figcaption strong { color: var(--white); }
+.section--navy .vcard blockquote, .section--navy .vcard figcaption { color: #d9d7ee; }
+@media (max-width: 980px) {
+  .vcarousel .carousel__track { grid-auto-columns: calc((100% - 20px) / 2.3); }
+  .vcarousel--reels .carousel__track { grid-auto-columns: calc((100% - 40px) / 3.3); }
+}
+@media (max-width: 820px) {
+  .vcarousel .carousel__track { grid-auto-columns: 64%; }
+  .vcarousel--reels .carousel__track { grid-auto-columns: 46%; }
+}
+.vblock-foot { margin-top: 34px; }
+.vcarousel--reels .vcard__icon { position: static; transform: none; width: 26px; height: 26px; box-shadow: none; }
+.vcarousel--reels .vcard__icon svg { width: 12px; height: 12px; margin-left: 2px; }
+.vcarousel--reels .vcard__play:hover .vcard__icon, .vcarousel--reels .vcard__play:focus-visible .vcard__icon { transform: scale(1.1); }
+.vcarousel--reels .vcard__play { flex-direction: row; align-items: flex-end; padding-bottom: 14px; background: linear-gradient(to top, rgba(20,17,50,.85) 0%, rgba(20,17,50,0) 30%); }
+.vcarousel--reels .vcard__cta { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--navy); padding: 5px 14px 5px 5px; font-size: 13px; backdrop-filter: none; }
+.vcarousel--reels .vcard__play { justify-content: center; }
+.vcard__cta { white-space: nowrap; }
+@media (max-width: 820px) {
+  .vcarousel--reels .carousel__track { grid-auto-columns: 42%; }
+  .vcarousel--reels .vcard__cta { font-size: 11.5px; padding-right: 10px; gap: 6px; }
+  .vcarousel--reels .vcard__icon { width: 22px; height: 22px; }
+}

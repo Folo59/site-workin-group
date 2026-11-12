@@ -303,3 +303,12 @@
     document.querySelectorAll('video').forEach(function (v) { if (v !== e.target) v.pause(); });
   }, true);
 })();
+
+// Témoignages vidéo : gros bouton de lecture sur l'aperçu
+(function () {
+  document.querySelectorAll('.vcard__play').forEach(function (btn) {
+    var v = btn.parentNode.querySelector('video');
+    btn.addEventListener('click', function () { btn.hidden = true; v.controls = true; v.play(); });
+    v.addEventListener('ended', function () { v.controls = false; v.load(); btn.hidden = false; });
+  });
+})();
