@@ -33,3 +33,10 @@ https://images.unsplash.com/photo-1596513010486-e3b472d162ed?q=95 assets/social/
 https://images.unsplash.com/photo-1758519288948-e3c87d2d78d8?auto=format&fit=crop&w=1600&q=85 assets/social/src/fin-de-permis.jpg
 https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=85 assets/social/src/technicien-gaz.jpg
 https://images.unsplash.com/photo-1762955911431-4c44c7c3f408?auto=format&fit=crop&w=1600&q=85 assets/social/src/prepose-beneficiaires.jpg
+https://images.unsplash.com/photo-1607388510015-c632e99da586?w=1600&q=85 assets/social/src/qc-foret-automne.jpg
+https://images.unsplash.com/photo-1767290444122-5230a7fefef7?w=1600&q=85 assets/social/src/qc-vieux-montreal.jpg
+https://images.unsplash.com/photo-1576771304215-6d4d30f7bb63?w=1600&q=85 assets/social/src/qc-frontenac-neige.jpg
+https://images.unsplash.com/photo-1762625348645-2debd7eae8c6?w=1600&q=85 assets/social/src/qc-tremblant.jpg
+https://images.unsplash.com/photo-1662611284229-a493dd36f96e?w=1600&q=85 assets/social/src/qc-gaspesie.jpg
+https://images.unsplash.com/photo-1722004961070-498400df0ab9?w=1600&q=85 assets/social/src/qc-charlevoix.jpg
+https://images.unsplash.com/photo-1558567612-559ce068ba31?w=1600&q=85 assets/social/src/qc-vieux-port-patin.jpg
