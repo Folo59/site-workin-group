@@ -1,0 +1,32 @@
+name: Transcription temporaire 2
+on:
+  push:
+    branches: [transcribe-tmp2]
+    paths: ['tmp-transcribe/go']
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: transcribe-tmp2 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q faster-whisper
+      - shell: bash
+        run: |
+          python - <<'PY'
+          from faster_whisper import WhisperModel
+          import glob
+          m=WhisperModel('medium',device='cpu',compute_type='int8')
+          for f in sorted(glob.glob('tmp-transcribe/*.mp3')):
+              segs,_=m.transcribe(f,language='fr',vad_filter=True,word_timestamps=True)
+              with open(f[:-4]+'.txt','w') as o:
+                  for s in segs:
+                      o.write(f"[{s.start:.2f}-{s.end:.2f}] {s.text.strip()}\n")
+                      o.write("   "+" ".join(f"{w.word.strip()}@{w.start:.2f}-{w.end:.2f}" for w in s.words)+"\n")
+          PY
+      - run: |
+          git config user.name workin-bot; git config user.email workin-bot@users.noreply.github.com
+          git add tmp-transcribe/*.txt; git commit -m "transcriptions"; git push
