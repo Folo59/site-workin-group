@@ -1217,3 +1217,22 @@ html, body { overflow-x: clip; }
 .vreview figcaption strong { display: block; color: var(--navy); font-size: 13px; }
 @media (max-width: 980px) { .vreviews { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 480px) { .vreviews { gap: 12px; } }
+
+/* Témoignages vidéo : onglets (page candidats) et vidéos face caméra */
+.vtabs__list { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 6px; }
+.vtabs__btn { font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; border-radius: 999px; padding: 9px 18px; border: 1px solid var(--line); background: var(--white); color: var(--navy); }
+.vtabs__btn[aria-selected="true"] { background: var(--rose); border-color: var(--rose); color: var(--white); }
+.section--navy .vtabs__btn { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); color: var(--white); }
+.section--navy .vtabs__btn[aria-selected="true"] { background: var(--rose); border-color: var(--rose); }
+.vtabs__intro { margin: 14px 0 0; max-width: 760px; }
+.vfaces { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; margin-top: 18px; }
+.vface { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.vface video { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: var(--radius); background: var(--navy); box-shadow: var(--shadow); display: block; }
+.vface blockquote { margin: 0; font-size: 14px; line-height: 1.5; font-style: italic; }
+.vface figcaption { font-size: 12px; }
+.vface figcaption strong { display: block; color: var(--navy); font-size: 13.5px; }
+.section--navy .vface figcaption strong, .section--navy .vreview figcaption strong { color: var(--white); }
+.section--navy .vface blockquote, .section--navy .vface figcaption, .section--navy .vreview figcaption { color: #d9d7ee; }
+@media (max-width: 980px) { .vfaces { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 560px) { .vfaces { grid-template-columns: 1fr; } }
+.vtabs + .btn-row { margin-top: 32px; }

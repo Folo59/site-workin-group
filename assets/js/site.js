@@ -281,3 +281,25 @@
     });
   });
 })();
+
+// Témoignages vidéo : onglets, une seule vidéo lue à la fois
+(function () {
+  document.querySelectorAll('[data-vtabs]').forEach(function (root) {
+    var btns = root.querySelectorAll('.vtabs__btn');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (o) {
+          var on = o === b;
+          o.setAttribute('aria-selected', on ? 'true' : 'false');
+          o.tabIndex = on ? 0 : -1;
+          var p = document.getElementById(o.getAttribute('aria-controls'));
+          if (p) { p.hidden = !on; if (!on) p.querySelectorAll('video').forEach(function (v) { v.pause(); }); }
+        });
+      });
+    });
+  });
+  document.addEventListener('play', function (e) {
+    if (e.target.tagName !== 'VIDEO') return;
+    document.querySelectorAll('video').forEach(function (v) { if (v !== e.target) v.pause(); });
+  }, true);
+})();
