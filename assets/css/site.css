@@ -1286,11 +1286,11 @@ html, body { overflow-x: clip; }
 
 /* Témoignages : trois blocs liés mais distincts */
 .vpanel { border-radius: 22px; padding: 26px 28px 24px; margin-top: 30px; }
-.vpanel--vie { background: rgba(185,197,244,.12); border: 1px solid rgba(185,197,244,.35); }
+.vpanel--vie { background: var(--white); box-shadow: var(--shadow); margin-top: 40px; }
 .vpanel--face { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); }
 .vpanel--avis { background: rgba(234,52,111,.14); border: 1px solid rgba(234,52,111,.35); }
 .vtag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border-radius: 999px; padding: 4px 11px; margin-bottom: 8px; }
-.vpanel--vie .vtag { background: var(--sand-deep); color: var(--navy); }
+.vpanel--vie .vtag { background: var(--navy); color: var(--white); }
 .vpanel--face .vtag { background: rgba(255,255,255,.14); color: var(--white); }
 .vpanel--avis .vtag { background: var(--rose); color: var(--white); }
 .vpanel .carousel__btn--prev { left: -21px; }
