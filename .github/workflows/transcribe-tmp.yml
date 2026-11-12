@@ -2,7 +2,7 @@ name: Transcription temporaire
 on:
   push:
     branches: [transcribe-tmp]
-    paths: ['tmp-transcribe/*.mp3']
+    paths: ['tmp-transcribe/go']
 permissions:
   contents: write
 jobs:
@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install faster-whisper
+        with: { ref: transcribe-tmp }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -q faster-whisper
       - run: |
           python - <<'PY'
           from faster_whisper import WhisperModel
@@ -21,6 +24,11 @@ jobs:
               with open(f[:-4]+'.txt','w') as o:
                   for s in segs: o.write(f"[{s.start:.1f}-{s.end:.1f}] {s.text.strip()}\n")
           PY
+        shell: bash
       - run: |
           git config user.name workin-bot; git config user.email workin-bot@users.noreply.github.com
           git add tmp-transcribe/*.txt; git commit -m "transcriptions"; git push
+      - if: failure()
+        run: |
+          git config user.name workin-bot; git config user.email workin-bot@users.noreply.github.com
+          echo failed > tmp-transcribe/failed.txt; git add tmp-transcribe; git commit -qm log; git push -q
