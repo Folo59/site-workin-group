@@ -10,10 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     strategy:
+      fail-fast: false
       matrix: { n: [1, 2, 3] }
     steps:
       - uses: actions/checkout@v4
         with: { ref: transcription-tmp14 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
       - name: Clé du runner
         run: |
           git config user.name "workin-bot"; git config user.email "workin-bot@users.noreply.github.com"
