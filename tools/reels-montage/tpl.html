@@ -1,0 +1,96 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:P;src:local('Poppins Bold'),local('Poppins-Bold');font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{font-family:'Poppins','Noto Color Emoji',sans-serif;position:relative}
+.emo{font-family:'Noto Color Emoji'}
+/* thèmes */
+body.conseil{background:#f1eff9;color:#28235a}
+body.temoignage{background:#272259;color:#fff}
+body.avis{background:#e7336d;color:#fff}
+.bar{position:absolute;left:0;top:0;bottom:0;width:22px;background:#e7336d}
+.bot{position:absolute;left:0;right:0;bottom:0;height:22px;background:#28235a}
+body.temoignage .bar,body.avis .bar{display:none}
+body.temoignage .bot,body.avis .bot{display:none}
+.wrap{position:absolute;left:80px;right:80px;top:0;bottom:0}
+.tag{display:inline-flex;align-items:center;gap:14px;height:63px;padding:0 33px;border-radius:40px;font-weight:700;font-size:27px;letter-spacing:4.5px}
+body.conseil .tag{background:#28235a;color:#fff}
+body.temoignage .tag{background:#e7336d;color:#fff}
+body.avis .tag{background:#fff;color:#e7336d}
+.tag .emo{font-size:28px;letter-spacing:0}
+/* cover */
+.cover .tag{height:73px;padding:0 36px;font-size:29px}
+.who{font-weight:700;font-size:52px;line-height:1.28;margin-top:36px;max-width:790px}
+.whosub{font-size:38px;font-weight:400;margin-top:4px;opacity:.85}
+body.conseil .whosub{color:#5b5683;opacity:1}
+.q{font-weight:700;font-size:98px;line-height:1.12;letter-spacing:-2.5px;margin-top:66px}
+body.conseil .q,body.temoignage .q{color:#e7336d}
+body.temoignage .q{color:#ff578e}
+.avs{display:flex;gap:18px;margin-top:68px}
+.av{width:182px;height:182px;border-radius:50%;border:6px solid #28235a;display:flex;align-items:center;justify-content:center;font-size:104px;background:#fff}
+.av.c{background:#e7336d}
+body.temoignage .av{border-color:#272259}
+/* sous-titres */
+.head{position:absolute;top:150px;left:0;right:0}
+.hq{font-weight:700;font-size:50px;line-height:1.25;margin-top:32px;max-width:860px}
+.spk{position:absolute;top:718px;left:-6px;display:flex;align-items:center;gap:22px}
+.spk .av{width:202px;height:202px;font-size:116px}
+.sn{font-weight:700;font-size:38px}
+.ss{font-size:28px;margin-top:6px;opacity:.75}
+body.conseil .ss{color:#7d7899;opacity:1}
+body.temoignage .ss{color:#c4bdf0;opacity:1}
+.txt{position:absolute;top:960px;left:0;right:-20px;font-weight:700;font-size:66px;line-height:1.31;letter-spacing:-.5px}
+body.conseil .txt .f{color:#c8c4dc} body.conseil .txt .c{color:#e7336d} body.conseil .txt .p{color:#28235a}
+body.temoignage .txt .f{color:#5b5690} body.temoignage .txt .c{color:#ff74a1} body.temoignage .txt .p{color:#fff}
+body.avis .txt .f{color:#f6a3bf} body.avis .txt .c{color:#28235a} body.avis .txt .p{color:#fff}
+.quote{position:absolute;right:0;top:620px;font-family:Georgia,serif;font-weight:700;font-size:300px;line-height:1;color:#e7336d}
+body.conseil .quote,body.avis .quote{display:none}
+.stars{position:absolute;right:0;top:150px;height:63px;display:flex;align-items:center;font-size:40px;letter-spacing:10px;color:#fff}
+body:not(.avis) .stars{display:none}
+.cta{position:absolute;bottom:170px;left:50%;transform:translateX(-50%);height:84px;padding:0 42px;border-radius:44px;border:3px solid currentColor;display:flex;align-items:center;font-weight:700;font-size:31px;white-space:nowrap}
+body.conseil .cta{border-color:#28235a}
+body.temoignage .cta,body.avis .cta{border-color:#fff}
+/* outro */
+body.outro{background:#28235a;color:#fff}
+.out{position:absolute;left:80px;right:80px;top:581px}
+.out .tag{background:#e7336d;color:#fff;font-size:24px;height:62px;padding:0 30px}
+.out h1{font-size:104px;line-height:1.05;letter-spacing:-2px;margin-top:40px}
+.out h1 b{color:#ff578e}
+.out p{font-size:38px;line-height:1.37;margin-top:46px;color:#e7e4f6;font-weight:400}
+.out .btn{display:inline-flex;align-items:center;height:105px;padding:0 53px;border-radius:53px;background:#e7336d;font-weight:700;font-size:35px;margin-top:62px}
+
+body.temoignage .av,body.avis .av{border:none}
+body.avis .av.c{background:#28235a}
+body.avis .q{color:#fff}
+body.avis .bot{display:block}
+.cquote{position:absolute;right:0;top:190px;font-family:Georgia,serif;font-weight:700;font-size:300px;line-height:1;color:#e7336d}
+body:not(.temoignage) .cquote{display:none}
+.cstars{position:absolute;right:0;top:160px;font-size:52px;letter-spacing:14px;color:#fff}
+body:not(.avis) .cstars{display:none}
+</style></head><body><div id="root"></div>
+<script>
+const E=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/ ([:;?!])/g,'\u00a0$1');
+const TAGS={conseil:['💡','CONSEIL'],temoignage:['','TÉMOIGNAGE'],avis:['★','AVIS SUR WORKIN']};
+function tag(t){const [e,l]=TAGS[t];return `<span class="tag">${e?`<span class="emo">${e}</span>`:''}${l}</span>`}
+window.render=function(d){
+  const b=document.body; b.className=d.mode==='outro'?'outro':d.theme;
+  let h='';
+  if(d.mode==='outro'){
+    h=`<div class="out"><span class="tag">WORKIN GROUP</span><h1>Vous aussi,<br>partez travailler<br>au <b>Québec</b></h1><p>Contrat signé avant le départ, permis géré,<br>installation accompagnée.</p><span class="btn">Offres d'emploi · lien en bio</span></div>`;
+  } else {
+    h='<div class="bar"></div><div class="bot"></div><div class="wrap">';
+    if(d.mode==='cover'){
+      h+=`<div class="cquote">“</div><div class="cstars">★★★★★</div><div class="cover" style="position:absolute;top:0;bottom:0;left:0;right:0;display:flex;flex-direction:column;justify-content:center"><div>${tag(d.theme)}<div class="who">${E(d.who)}</div><div class="whosub">${E(d.whosub)}</div><div class="q">${E(d.q)}</div><div class="avs">${d.people.map((p,i)=>`<div class="av ${p.cand?'c':''}"><span class="emo">${p.emoji}</span></div>`).join('')}</div></div></div>`;
+    } else {
+      const p=d.speaker;
+      h+=`<div class="head">${tag(d.theme)}<div class="hq">${E(d.q)}</div></div><div class="stars">★★★★★</div><div class="quote">“</div>
+      <div class="spk"><div class="av ${p.cand?'c':''}"><span class="emo">${p.emoji}</span></div><div><div class="sn">${E(p.name)}</div><div class="ss">${E(p.role)}</div></div></div>
+      <div class="txt">${d.words.map((w,i)=>`<span class="${i<d.cur?'p':i==d.cur?'c':'f'}">${E(w)}</span>`).join(' ')}</div>
+      <div class="cta">Offres d'emploi · lien en bio</div>`;
+    }
+    h+='</div>';
+  }
+  document.getElementById('root').innerHTML=h;
+};
+</script></body></html>
