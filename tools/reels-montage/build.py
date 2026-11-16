@@ -98,6 +98,10 @@ def main(spec_path, outdir):
     run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', os.path.join(tmp, 'list.txt'), '-i', os.path.join(tmp, 'a.wav'),
          '-vf', f'fps={FPS},format=yuv420p', '-c:v', 'libx264', '-profile:v', 'high', '-crf', '20', '-preset', 'medium', '-tune', 'stillimage',
          '-c:a', 'aac', '-b:a', '128k', '-t', f'{total:.3f}', '-movflags', '+faststart', mp4])
+    # zones masquées par l'interface Instagram (haut, bas, colonne de droite)
+    safe = mp4[:-4] + '.safe.mp4'
+    run(['python3', os.path.join(HERE, 'safezone.py'), mp4, safe])
+    os.replace(safe, mp4)
     # couverture 4:5
     cov = [dict(base, mode='cover', h=1350, file=sp['id'] + '.jpg')]
     json.dump(cov, open(os.path.join(tmp, 'cover.json'), 'w'), ensure_ascii=False)
