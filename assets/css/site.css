@@ -1303,3 +1303,18 @@ html, body { overflow-x: clip; }
 .vlink:hover { text-decoration: underline; }
 
 @media (max-width: 820px) { .vcard .vcard__cta { font-size: 11.5px; padding-right: 10px; gap: 6px; } .vcard .vcard__icon { width: 22px; height: 22px; } }
+
+/* Fil d'actualité : dates, filtres, « voir plus » */
+#fil { position: relative; }
+#fil .anchor { position: absolute; top: 0; }
+.feed__filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 22px; }
+.feed__chip { font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; border-radius: 999px; padding: 8px 18px; border: 1px solid var(--line); background: var(--white); color: var(--navy); }
+.feed__chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 2px 0 6px; font-size: 12.5px; color: var(--muted); }
+.post-meta time { font-weight: 600; color: var(--navy); margin-right: 4px; }
+.post-tag { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 3px 9px; }
+.post-tag--emp { background: var(--navy); color: var(--white); }
+.post-tag--cand { background: var(--rose-soft); color: var(--rose-dark); }
+.post--new { position: relative; }
+.post--new::before { content: "Nouveau"; position: absolute; top: 12px; left: 12px; z-index: 1; background: var(--rose); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; border-radius: 999px; padding: 4px 10px; }
+.feed__more { display: flex; justify-content: center; margin-top: 28px; }

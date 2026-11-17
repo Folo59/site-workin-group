@@ -312,3 +312,29 @@
     v.addEventListener('ended', function () { v.controls = false; v.load(); btn.hidden = false; });
   });
 })();
+
+// Fil d'actualité : 6 articles, puis « Voir plus » ; filtre employeurs / candidats
+(function () {
+  var root = document.querySelector('[data-feed]');
+  if (!root) return;
+  var posts = Array.prototype.slice.call(root.querySelectorAll('.post'));
+  var chips = root.querySelectorAll('.feed__chip');
+  var more = root.querySelector('[data-more]');
+  var STEP = 6, shown = STEP, filter = 'all';
+  function render() {
+    var list = posts.filter(function (p) { return filter === 'all' || p.getAttribute('data-aud').indexOf(filter) > -1; });
+    posts.forEach(function (p) { p.hidden = true; });
+    list.forEach(function (p, i) { p.hidden = i >= shown; });
+    more.parentNode.hidden = list.length <= shown;
+  }
+  function setFilter(f) {
+    filter = f; shown = STEP;
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-filter') === f ? 'true' : 'false'); });
+    render();
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { setFilter(c.getAttribute('data-filter')); }); });
+  more.addEventListener('click', function () { shown += STEP; render(); });
+  function fromHash() { if (location.hash === '#employeurs') setFilter('emp'); else if (location.hash === '#candidats') setFilter('cand'); }
+  window.addEventListener('hashchange', fromHash);
+  fromHash(); render();
+})();
