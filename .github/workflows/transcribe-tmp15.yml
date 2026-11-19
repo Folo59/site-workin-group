@@ -1,0 +1,54 @@
+name: Transcription (temporaire 15)
+on:
+  push:
+    branches: [transcription-tmp15]
+    paths: ['tmp-tr/claude.pub']
+permissions:
+  contents: write
+jobs:
+  tr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      matrix: { n: [1] }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: transcription-tmp15 }
+      - name: Clé du runner
+        run: |
+          git config user.name "workin-bot"; git config user.email "workin-bot@users.noreply.github.com"
+          openssl genrsa -out /tmp/r.key 3072 2>/dev/null
+          openssl rsa -in /tmp/r.key -pubout -out tmp-tr/runner${{ matrix.n }}.pub 2>/dev/null
+          git add tmp-tr/runner${{ matrix.n }}.pub && git commit -qm "runner key ${{ matrix.n }}"
+          for i in 1 2 3 4 5 6; do git pull -q --rebase && git push -q && break; sleep $((RANDOM%5+2)); done
+      - name: Préparer le modèle
+        run: |
+          pip install -q faster-whisper
+          python -c "from faster_whisper import WhisperModel; WhisperModel('large-v3', device='cpu', compute_type='int8')"
+      - name: Attendre l'audio
+        run: |
+          N=${{ matrix.n }}
+          for i in $(seq 1 180); do
+            git pull -q --rebase || true
+            [ -f tmp-tr/a$N.bin ] && [ -f tmp-tr/k$N.bin ] && break
+            sleep 10
+          done
+          openssl pkeyutl -decrypt -inkey /tmp/r.key -in tmp-tr/k$N.bin -out /tmp/k.txt
+          openssl enc -d -aes-256-cbc -pbkdf2 -in tmp-tr/a$N.bin -out /tmp/a.mp3 -pass file:/tmp/k.txt
+      - name: Transcrire
+        run: |
+          N=${{ matrix.n }}
+          python - <<'PY'
+          import json
+          from faster_whisper import WhisperModel
+          m = WhisperModel("large-v3", device="cpu", compute_type="int8")
+          segs, info = m.transcribe("/tmp/a.mp3", language="fr", word_timestamps=True, vad_filter=True)
+          out = [{"start": s.start, "end": s.end, "text": s.text, "words": [{"s": w.start, "e": w.end, "w": w.word} for w in s.words]} for s in segs]
+          json.dump(out, open("/tmp/t.json", "w"), ensure_ascii=False)
+          PY
+          openssl rand -hex 32 | tr -d '\n' > /tmp/k2.txt
+          openssl enc -aes-256-cbc -pbkdf2 -salt -in /tmp/t.json -out tmp-tr/t$N.bin -pass file:/tmp/k2.txt
+          openssl pkeyutl -encrypt -pubin -inkey tmp-tr/claude.pub -in /tmp/k2.txt -out tmp-tr/r$N.bin
+          rm -f /tmp/a.mp3 /tmp/t.json
+          git add tmp-tr/t$N.bin tmp-tr/r$N.bin && git commit -qm "result $N"
+          for i in 1 2 3 4 5 6; do git pull -q --rebase && git push -q && break; sleep $((RANDOM%5+2)); done
