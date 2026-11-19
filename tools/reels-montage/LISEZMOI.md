@@ -6,3 +6,4 @@
 - Spec : `id, theme, q, who, whosub, people[{emoji,cand}], speakers{clé:{emoji,name,role,cand}}, src, clips[{s,e,spk,words:[[mot,début,fin]]}]` (temps dans le fichier source).
 - Transcription mot à mot : faster-whisper `medium` (fr, word_timestamps) — à lancer via une branche temporaire GitHub Actions avec l'audio chiffré (le dépôt est public).
 - `safezone.py entree.mp4 sortie.mp4` : recadre un Reel pour que rien ne passe sous l'interface Instagram (haut ≈ 250 px, bas ≈ 480 px, colonne de droite ≈ 150 px). `build.py` l'applique automatiquement ; ne pas l'appliquer deux fois à la même vidéo.
+- `paysage.py entree.mp4 sortie.mp4 clip.mp4@début ...` : habillage « avis sur Workin » sur fond vidéo (Pexels, en lien avec le métier ou le sujet + plans du Québec) — avis : fond vidéo depuis novembre 2026. `paysage.py couverture.jpg sortie.jpg photo.jpg` pour la couverture.
