@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Habillage « avis sur Workin » sur fond paysage du Québec.
 Prend un Reel avis déjà monté (fond rose uni, safezone appliquée) et remplace le fond rose
-par des photos du Québec animées (zoom lent + fondus), assombries pour la lisibilité.
+par des vidéos (ex. Pexels, « fichier.mp4@début ») ou des photos du Québec animées, enchaînées en fondu et assombries.
 - le rose uni devient transparent (le paysage apparaît, y compris dans le texte des pastilles blanches) ;
 - le bleu marine (mot en cours, pastille de l'avatar candidat, filet du bas) passe en rose vif ;
 - le rose pâle (mots à venir) passe en lavande grisée ;
 - le carton final (fond marine) est conservé tel quel.
-Usage : python3 paysage.py entree.mp4 sortie.mp4 photo1.jpg [photo2.jpg ...]"""
+Usage : python3 paysage.py entree.mp4 sortie.mp4 clip1.mp4@12 photo2.jpg ...
+       python3 paysage.py couverture.jpg sortie.jpg photo.jpg   (couverture 4:5)"""
 import sys, subprocess, json
 import numpy as np
 
@@ -44,6 +45,13 @@ def background(photos, dur):
     seg = (dur + XF * (n - 1)) / n
     ins, flt = [], []
     for i, ph in enumerate(photos):
+        if not ph.lower().endswith(('.jpg', '.jpeg', '.png')):
+            # vidéo (ex. Pexels) : « fichier.mp4@début » ; recadrée au centre en 9:16
+            path, _, st = ph.partition('@')
+            ins += ['-stream_loop', '-1', '-ss', st or '0', '-t', f'{seg + 0.5:.3f}', '-i', path]
+            flt.append(f"[{i}:v]fps={FPS},crop='min(iw,ih*9/16)':'min(ih,iw*16/9)',scale=1080:1920,setsar=1,"
+                       f"trim=duration={seg:.3f},setpts=PTS-STARTPTS,format=yuv420p[p{i}]")
+            continue
         ins += ['-loop', '1', '-framerate', str(FPS), '-t', f'{seg:.3f}', '-i', ph]
         fr = int(seg * FPS) + 2
         zin = i % 2 == 0
