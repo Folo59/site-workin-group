@@ -4,7 +4,9 @@ Prend un Reel avis déjà monté (fond rose uni, safezone appliquée) et remplac
 par des vidéos (ex. Pexels, « fichier.mp4@début ») ou des photos du Québec animées, enchaînées en fondu et assombries.
 - le rose uni devient transparent (le paysage apparaît, y compris dans le texte des pastilles blanches) ;
 - le bleu marine (mot en cours, pastille de l'avatar candidat, filet du bas) passe en rose vif ;
-- le rose pâle (mots à venir) passe en lavande grisée ;
+- le rose pâle (mots à venir) devient du blanc translucide ;
+- chaque pixel est traité comme un mélange rose↔marine ou rose↔blanc (bords lissés) ; les autres couleurs
+  (emojis : yeux, cheveux, cravate…) sont conservées telles quelles ;
 - le carton final (fond marine) est conservé tel quel.
 Usage : python3 paysage.py entree.mp4 sortie.mp4 clip1.mp4@12 photo2.jpg ...
        python3 paysage.py couverture.jpg sortie.jpg photo.jpg   (couverture 4:5)"""
@@ -12,11 +14,6 @@ import sys, subprocess, json
 import numpy as np
 
 FPS = 30
-PINK = '0xe7336d'
-NAVY = '0x28235a'
-HOT = '0xff5c93'
-FUT_SRC = '0xf6a3bf'   # mots à venir (rose pâle)
-FUT = '0xb4afc9'       # → lavande grisée
 SHADE = '0x1d1a45@0.58'
 XF = 0.8   # fondu entre deux photos
 
@@ -68,46 +65,78 @@ def background(photos, dur):
     return ins, flt
 
 
+P_RGB = np.array([0xe7, 0x33, 0x6d], np.float32)    # rose uni du fond
+LINES = [  # (couleur d'origine, couleur finale) : le pixel est vu comme un mélange rose ↔ couleur
+    (np.array([0x28, 0x23, 0x5a], np.float32), np.array([0xff, 0x5c, 0x93], np.float32)),  # marine → rose vif
+    (np.array([255, 255, 255], np.float32), np.array([255, 255, 255], np.float32)),        # blanc (le rose pâle = blanc translucide)
+]
+TOL = 28.0   # distance max (0-255) à une droite de mélange ; au-delà, pixel conservé tel quel (emojis…)
+
+
+def composite(fg, bg, tol=TOL):
+    """remplace le rose par le fond ; les mélanges rose↔marine / rose↔blanc deviennent rose vif / blanc
+    avec la transparence correspondante ; tout le reste (emojis : yeux, cheveux…) reste intact."""
+    f = fg.astype(np.float32)
+    best_d = np.full(f.shape[:2], 1e9, np.float32)
+    alpha = np.ones(f.shape[:2], np.float32)
+    col = f.copy()
+    for src, dst in LINES:
+        v = src - P_RGB
+        t = np.clip(((f - P_RGB) @ v) / (v @ v), 0, 1)
+        d = np.linalg.norm(f - (P_RGB + t[..., None] * v), axis=2)
+        m = (d < tol) & (d < best_d)
+        best_d = np.where(m, d, best_d)
+        alpha = np.where(m, t, alpha)
+        col = np.where(m[..., None], dst, col)
+    a = alpha[..., None]
+    return (col * a + bg.astype(np.float32) * (1 - a)).clip(0, 255).astype(np.uint8)
+
+
 def main(src, dst, photos):
     d = duration(src)
     os_ = outro_start(src)
     ins, flt = background(photos, os_)
-    k = len(photos)
-    flt += [
-        f"[{k}:v]fps={FPS},split=2[main][end]",
-        f"[main]trim=end={os_:.4f},setpts=PTS-STARTPTS,format=rgba,split=3[m1][m2][m3]",
-        f"[m1]colorkey={PINK}:0.16:0.06[fg]",
-        f"[m2]colorkey={NAVY}:0.12:0.08,alphaextract,negate[nm]",
-        f"color=c={HOT}:s=1080x1920:r={FPS}:d={os_:.4f},format=rgba[hot]",
-        "[hot][nm]alphamerge[hotm]",
-        f"[m3]colorkey={FUT_SRC}:0.09:0.06,alphaextract,negate[fm]",
-        f"color=c={FUT}:s=1080x1920:r={FPS}:d={os_:.4f},format=rgba[fut]",
-        "[fut][fm]alphamerge[futm]",
-        "[bg][fg]overlay=format=auto[a]",
-        "[a][hotm]overlay=format=auto[b]",
-        "[b][futm]overlay=format=auto,format=yuv420p[v1]",
-        f"[end]trim=start={os_:.4f},setpts=PTS-STARTPTS,format=yuv420p[v2]",
-        "[v1][v2]concat=n=2:v=1:a=0[v]",
-    ]
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', *ins, '-i', src, '-filter_complex', ';'.join(flt),
-                    '-map', '[v]', '-map', f'{k}:a', '-c:v', 'libx264', '-profile:v', 'high', '-crf', '20',
-                    '-preset', 'medium', '-c:a', 'copy', '-movflags', '+faststart', '-t', f'{d:.3f}', dst], check=True)
-    print(json.dumps(dict(src=src, duree=round(d, 2), carton=round(os_, 2), photos=photos)))
+    W, H = 1080, 1920
+    n = int(round(os_ * FPS))
+    pb = subprocess.Popen(['ffmpeg', '-v', 'error', *ins, '-filter_complex', ';'.join(flt), '-map', '[bg]',
+                           '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+    pf = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', src, '-vf', f'fps={FPS}', '-t', f'{os_:.4f}',
+                           '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
+    tmp = dst + '.part1.mp4'
+    po = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}',
+                           '-r', str(FPS), '-i', '-', '-i', src,
+                           '-filter_complex', f"[1:v]fps={FPS},trim=start={os_:.4f},setpts=PTS-STARTPTS,format=yuv420p[e];"
+                                              f"[0:v]format=yuv420p[s];[s][e]concat=n=2:v=1:a=0[v]",
+                           '-map', '[v]', '-map', '1:a', '-c:v', 'libx264', '-profile:v', 'high', '-crf', '23',
+                           '-maxrate', '2200k', '-bufsize', '4400k', '-preset', 'medium', '-c:a', 'copy',
+                           '-movflags', '+faststart', '-t', f'{d:.3f}', dst], stdin=subprocess.PIPE)
+    sz = W * H * 3
+    last_bg = None
+    for i in range(n):
+        fb = pf.stdout.read(sz)
+        if len(fb) < sz:
+            break
+        bb = pb.stdout.read(sz)
+        if len(bb) == sz:
+            last_bg = np.frombuffer(bb, np.uint8).reshape(H, W, 3)
+        fr = np.frombuffer(fb, np.uint8).reshape(H, W, 3)
+        po.stdin.write(composite(fr, last_bg).tobytes())
+    po.stdin.close(); po.wait(); pf.kill(); pb.kill()
+    print(json.dumps(dict(src=src, duree=round(d, 2), carton=round(os_, 2), fonds=photos)))
 
 
 def cover(src, dst, photo):
-    """couverture 4:5 (jpg) : même traitement sur une seule photo fixe."""
-    fc = (f"[0:v]scale=1080:1350:force_original_aspect_ratio=increase,crop=1080:1350,setsar=1,format=rgba,"
-          f"drawbox=x=0:y=0:w=iw:h=ih:color={SHADE}:t=fill[bg];"
-          f"[1:v]format=rgba,split=3[m1][m2][m3];"
-          f"[m1]colorkey={PINK}:0.18:0.06[fg];"
-          f"[m2]colorkey={NAVY}:0.12:0.08,alphaextract,negate[nm];"
-          f"color=c={HOT}:s=1080x1350,format=rgba[hot];[hot][nm]alphamerge[hotm];"
-          f"[m3]colorkey={FUT_SRC}:0.09:0.06,alphaextract,negate[fm];"
-          f"color=c={FUT}:s=1080x1350,format=rgba[fut];[fut][fm]alphamerge[futm];"
-          f"[bg][fg]overlay[a];[a][hotm]overlay[b];[b][futm]overlay,format=yuvj420p[v]")
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', photo, '-i', src, '-filter_complex', fc,
-                    '-map', '[v]', '-frames:v', '1', '-q:v', '2', dst], check=True)
+    """couverture 4:5 (jpg) : même traitement sur une image fixe (tolérance un peu plus large : JPEG)."""
+    W, H = 1080, 1350
+    rd = lambda args: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', *args, '-frames:v', '1', '-f', 'rawvideo',
+                                                    '-pix_fmt', 'rgb24', '-'], capture_output=True, check=True).stdout,
+                                    np.uint8).reshape(H, W, 3)
+    bg = rd(['-i', photo, '-vf', f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,"
+                                 f"drawbox=x=0:y=0:w=iw:h=ih:color={SHADE}:t=fill"])
+    fg = rd(['-i', src, '-vf', f'scale={W}:{H}'])
+    out = composite(fg, bg, tol=32)
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-i', '-',
+                    '-q:v', '2', dst], input=out.tobytes(), check=True)
 
 
 if __name__ == '__main__':
