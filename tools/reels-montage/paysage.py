@@ -97,7 +97,7 @@ def main(src, dst, photos):
 
 def cover(src, dst, photo):
     """couverture 4:5 (jpg) : même traitement sur une seule photo fixe."""
-    fc = (f"[0:v]scale=-2:1350,crop=1080:1350:(iw-1080)/2:0,setsar=1,format=rgba,"
+    fc = (f"[0:v]scale=1080:1350:force_original_aspect_ratio=increase,crop=1080:1350,setsar=1,format=rgba,"
           f"drawbox=x=0:y=0:w=iw:h=ih:color={SHADE}:t=fill[bg];"
           f"[1:v]format=rgba,split=3[m1][m2][m3];"
           f"[m1]colorkey={PINK}:0.18:0.06[fg];"
