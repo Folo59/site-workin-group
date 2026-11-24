@@ -27,6 +27,9 @@ def button(label,href):
 stats=''.join(f'<div style="display:inline-block;vertical-align:top;width:100%;max-width:178px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding:5px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:16px 14px;"><p style="text-align:left;margin:0 0 4px;{FONT}font-size:20px;font-weight:700;color:{ROSE};line-height:1.15;white-space:nowrap;">{a}</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.45;color:{NAVY};">{b}</p></td></tr></table></td></tr></table></div>' for a,b in [
  ('86 jours','ouvrables en moyenne pour une EIMT bas salaire'),('102 jours','ouvrables en moyenne pour une EIMT haut salaire'),('+ affichage','la période d’affichage préalable s’ajoute à ces délais')])
 
+chiffres=''.join(f'<div style="display:inline-block;vertical-align:top;width:100%;max-width:178px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="padding:5px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="text-align:left;background:#fdeaf0;border-radius:10px;padding:16px 14px;"><p style="text-align:left;margin:0 0 4px;{FONT}font-size:26px;font-weight:700;color:{ROSE};line-height:1.1;">{a}</p><p style="text-align:left;margin:0;{FONT}font-size:12.5px;line-height:1.45;color:{NAVY};">{b}</p></td></tr></table></td></tr></table></div>' for a,b in [
+ ('19','candidats arrivés au Québec en novembre'),('12','permis délivrés et acceptés'),('62','projets de recrutement en cours')])
+
 reflexes=[
  ('Reprenez la liste des permis de votre équipe, avec leurs dates d’expiration :','chaque prochain renouvellement en EIMT bas salaire peut désormais viser une durée plus longue.'),
  ('Une demande déposée avant le 6 novembre ?','Le communiqué ne vise que les demandes présentées à partir de cette date. Écrivez-nous : nous regardons votre dossier au cas par cas.'),
@@ -87,7 +90,7 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 {p('Ce mois-ci, Ottawa a changé une règle qui touche directement vos travailleurs à bas salaire : la durée maximale des nouvelles EIMT passe à deux ans. Voici ce que cela change pour vous, les nouveaux délais publiés, et une porte à ne pas manquer avant le 24 novembre pour vos futurs Jeunes professionnels.')}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 0;"><tr><td style="text-align:left;background:{LILAS};border-radius:10px;padding:18px 22px;">
 <p style="text-align:left;margin:0 0 8px;{FONT}font-size:13px;font-weight:700;color:{NAVY};text-transform:uppercase;letter-spacing:1px;">Au sommaire</p>
-<p style="text-align:left;margin:0;{FONT}font-size:14.5px;line-height:1.8;color:{TXT};">1. EIMT bas salaire : jusqu’à deux ans au lieu d’un<br>2. Traitement simplifié : la voie rapide pour vos postes spécialisés<br>3. Délais des EIMT : les chiffres d’octobre<br>4. Ce que ce changement veut dire pour vos équipes<br>5. Jeunes professionnels : une seconde porte s’ouvre le 17 novembre</p>
+<p style="text-align:left;margin:0;{FONT}font-size:14.5px;line-height:1.8;color:{TXT};">1. EIMT bas salaire : jusqu’à deux ans au lieu d’un<br>2. Traitement simplifié : la voie rapide pour vos postes spécialisés<br>3. Délais des EIMT : les chiffres d’octobre<br>4. Ce que ce changement veut dire pour vos équipes<br>5. Chez Workin ce mois-ci<br>6. Jeunes professionnels : une seconde porte s’ouvre le 17 novembre</p>
 </td></tr></table></td></tr>
 
 {section(1,'À la une','EIMT bas salaire : jusqu’à deux ans au lieu d’un',
@@ -116,6 +119,14 @@ body{{margin:0;padding:0;background:#eeecf6;}} a{{color:{NAVY};}}
 {section(4,'Conseils pratiques','Ce que ce changement veut dire pour vos équipes',
  f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0">{ref}</table>'+
  source('EDSC, communiqué du 06-11-2026 ; EDSC, « Refusal to process a Labour Market Impact Assessment application », page modifiée le 27-10-2026 ; EDSC, « Program requirements for low-wage positions » ; EDSC, « Labour Market Impact Assessment application processing times », page modifiée le 12-11-2026 ; consultés le 14-11-2026.'))}
+
+<!-- CHEZ WORKIN -->
+<tr><td class="px" style="text-align:left;padding:30px 26px 0;">
+<p style="text-align:left;margin:0 0 8px;{FONT}font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:{ROSE};">Chez Workin</p>
+<p style="text-align:left;margin:0 0 14px;{FONT}font-size:20px;line-height:1.3;font-weight:700;color:{NAVY};">Chez Workin ce mois-ci</p>
+<div style="font-size:0;line-height:0;margin:0 -5px 10px;">{chiffres}</div>
+{source('direction Workin Group, chiffres communiqués le 23-11-2026.')}
+</td></tr>
 
 <!-- NOTRE SPÉCIALITÉ -->
 <tr><td class="px" style="text-align:left;padding:32px 26px 0;">
@@ -167,7 +178,7 @@ Montréal, Canada et Lille, France · <a href="https://workin-group.com/" style=
 
 <!-- MENTION -->
 <tr><td class="px" style="text-align:left;background:{LILAS};padding:18px 26px;">
-<p style="text-align:left;margin:0;{FONT}font-size:11.5px;line-height:1.55;color:{GRIS};">Cette infolettre fournit une information générale à jour au 18 novembre 2026. Elle ne constitue pas un avis sur votre situation particulière : chaque dossier s’examine au cas par cas.</p>
+<p style="text-align:left;margin:0;{FONT}font-size:11.5px;line-height:1.55;color:{GRIS};">Cette infolettre fournit une information générale à jour au 23 novembre 2026. Elle ne constitue pas un avis sur votre situation particulière : chaque dossier s’examine au cas par cas.</p>
 </td></tr>
 </table>
 </td></tr></table>
