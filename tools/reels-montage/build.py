@@ -73,7 +73,7 @@ def main(spec_path, outdir):
     # audio : silence de couverture + extraits + silence final
     flt, ins = [], []
     for i, (s, e) in enumerate(audio_parts):
-        flt.append(f"[0:a]atrim={s}:{e},asetpts=PTS-STARTPTS,afade=t=in:d=0.04,afade=t=out:st={max(e-s-0.06,0)}:d=0.06[a{i}]")
+        flt.append(f"[0:a]atrim={s}:{e},asetpts=PTS-STARTPTS,afade=t=in:d=0.04,afade=t=out:st={max(e-s-0.15,0)}:d=0.15[a{i}]")
     sil = lambda d, n: f"anullsrc=r=48000:cl=mono,atrim=0:{d}[{n}]"
     flt.append(sil(COVER, 'sc')); flt.append(sil(OUTRO, 'so')); flt.append(sil(GAP, 'sg'))
     seq = ['[sc]']
