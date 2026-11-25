@@ -50,3 +50,5 @@ https://images.pexels.com/photos/14156576/pexels-photo-14156576.jpeg?auto=compre
 https://images.pexels.com/photos/4428045/pexels-photo-4428045.jpeg?auto=compress&cs=tinysrgb&w=1400 assets/social/src/_cand/px-4428045.jpg
 https://images.pexels.com/photos/3756678/pexels-photo-3756678.jpeg?auto=compress&cs=tinysrgb&w=1400 assets/social/src/_cand/px-3756678.jpg
 https://images.pexels.com/photos/14661639/pexels-photo-14661639.jpeg?auto=compress&cs=tinysrgb&w=1400 assets/social/src/_cand/px-14661639.jpg
+https://images.pexels.com/photos/10041257/pexels-photo-10041257.jpeg?auto=compress&cs=tinysrgb&w=1400 assets/social/src/_cand/px-10041257.jpg
+https://images.pexels.com/photos/34381970/pexels-photo-34381970.jpeg?auto=compress&cs=tinysrgb&w=1400 assets/social/src/_cand/px-34381970.jpg
