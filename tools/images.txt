@@ -41,10 +41,3 @@ https://images.unsplash.com/photo-1662611284229-a493dd36f96e?w=1600&q=85 assets/
 https://images.unsplash.com/photo-1722004961070-498400df0ab9?w=1600&q=85 assets/social/src/qc-charlevoix.jpg
 https://images.unsplash.com/photo-1558567612-559ce068ba31?w=1600&q=85 assets/social/src/qc-vieux-port-patin.jpg
 https://images.unsplash.com/photo-1613392720953-19002a0f661a?auto=format&fit=crop&w=1600&q=85 assets/social/src/arriver-en-hiver.jpg
-https://images.pexels.com/photos/34381970/pexels-photo-34381970.jpeg?auto=compress&cs=tinysrgb&w=1200 assets/social/src/_cand/px-34381970.jpg
-https://images.pexels.com/photos/14870834/pexels-photo-14870834.jpeg?auto=compress&cs=tinysrgb&w=1200 assets/social/src/_cand/px-14870834.jpg
-https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1200 assets/social/src/_cand/px-2381069.jpg
-https://images.pexels.com/photos/7648239/pexels-photo-7648239.jpeg?auto=compress&cs=tinysrgb&w=1200 assets/social/src/_cand/px-7648239.jpg
-https://images.pexels.com/photos/18809829/pexels-photo-18809829.jpeg?auto=compress&cs=tinysrgb&w=1200 assets/social/src/_cand/px-18809829.jpg
-https://images.pexels.com/photos/26692093/pexels-photo-26692093.jpeg?auto=compress&cs=tinysrgb&w=1200 assets/social/src/_cand/px-26692093.jpg
-https://images.pexels.com/photos/18794228/pexels-photo-18794228.jpeg?auto=compress&cs=tinysrgb&w=1200 assets/social/src/_cand/px-18794228.jpg
