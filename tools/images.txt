@@ -41,3 +41,7 @@ https://images.unsplash.com/photo-1662611284229-a493dd36f96e?w=1600&q=85 assets/
 https://images.unsplash.com/photo-1722004961070-498400df0ab9?w=1600&q=85 assets/social/src/qc-charlevoix.jpg
 https://images.unsplash.com/photo-1558567612-559ce068ba31?w=1600&q=85 assets/social/src/qc-vieux-port-patin.jpg
 https://images.unsplash.com/photo-1613392720953-19002a0f661a?auto=format&fit=crop&w=1600&q=85 assets/social/src/arriver-en-hiver.jpg
+https://unsplash.com/napi/search/photos?query=smiling%20businessman%20suit&per_page=30&orientation=portrait assets/social/src/_search/manager1.json
+https://unsplash.com/napi/search/photos?query=friendly%20manager%20suit%20portrait&per_page=30 assets/social/src/_search/manager2.json
+https://unsplash.com/napi/search/photos?query=chef%20cooking%20restaurant%20kitchen&per_page=30 assets/social/src/_search/chef1.json
+https://unsplash.com/napi/search/photos?query=cook%20professional%20kitchen&per_page=30 assets/social/src/_search/chef2.json
