@@ -1332,3 +1332,7 @@ html, body { overflow-x: clip; }
 .ytguide .vcard__icon{position:static;transform:none;width:34px;height:34px;box-shadow:none}
 .ytguide .vcard__icon svg{width:14px;height:14px;margin-left:2px}
 .ytguide__play:hover .vcard__icon{transform:scale(1.08)}
+.ytguide__media--hero{align-self:center;width:100%}
+.hero--video .ytguide .vcard__cta,.ytguide__media--hero .vcard__cta{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--navy);padding:6px 18px 6px 6px;font-size:14px;font-weight:700;border-radius:999px;box-shadow:0 6px 18px rgba(20,17,50,.25)}
+.ytguide__media--hero .vcard__icon{position:static;transform:none;width:34px;height:34px;box-shadow:none}
+.ytguide__media--hero .vcard__icon svg{width:14px;height:14px;margin-left:2px}
