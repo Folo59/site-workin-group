@@ -1336,3 +1336,14 @@ html, body { overflow-x: clip; }
 .hero--video .ytguide .vcard__cta,.ytguide__media--hero .vcard__cta{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--navy);padding:6px 18px 6px 6px;font-size:14px;font-weight:700;border-radius:999px;box-shadow:0 6px 18px rgba(20,17,50,.25)}
 .ytguide__media--hero .vcard__icon{position:static;transform:none;width:34px;height:34px;box-shadow:none}
 .ytguide__media--hero .vcard__icon svg{width:14px;height:14px;margin-left:2px}
+/* Bannière page candidats : vidéo pleine largeur */
+.hero--video .hero__grid{grid-template-columns:minmax(0,1fr)!important;gap:36px;justify-items:center;text-align:center}
+.hero--video .hero__text{max-width:860px}
+.hero--video .hero__text p{margin-inline:auto;max-width:70ch}
+.hero--video .btn-row{justify-content:center}
+.hero--video .ytguide__media--hero{max-width:1040px;border-radius:22px}
+.hero--video .ytguide__media--hero .vcard__cta{font-size:16px;padding:8px 22px 8px 8px}
+.hero--video .ytguide__media--hero .vcard__icon{width:44px;height:44px}
+.hero--video .ytguide__media--hero .vcard__icon svg{width:17px;height:17px}
+.hero--video .ytguide__play{padding-bottom:30px}
+@media (max-width:600px){.hero--video .ytguide__media--hero .vcard__cta{font-size:13.5px;padding:6px 14px 6px 6px}.hero--video .ytguide__media--hero .vcard__icon{width:34px;height:34px}.hero--video .ytguide__play{padding-bottom:14px}}
