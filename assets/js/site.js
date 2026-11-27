@@ -338,3 +338,6 @@
   window.addEventListener('hashchange', fromHash);
   fromHash(); render();
 })();
+
+// Vidéo YouTube chargée au clic (youtube-nocookie)
+document.querySelectorAll('[data-yt]').forEach(function(m){var b=m.querySelector('button');if(!b)return;b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+m.dataset.yt+'?autoplay=1&rel=0';f.title=b.getAttribute('aria-label')||'Vidéo';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;m.innerHTML='';m.appendChild(f);});});

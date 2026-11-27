@@ -1318,3 +1318,17 @@ html, body { overflow-x: clip; }
 .post--new { position: relative; }
 .post--new::before { content: "Nouveau"; position: absolute; top: 12px; left: 12px; z-index: 1; background: var(--rose); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; border-radius: 999px; padding: 4px 10px; }
 .feed__more { display: flex; justify-content: center; margin-top: 28px; }
+
+/* Vidéo guide candidat (YouTube au clic) */
+.ytguide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:36px;align-items:center;margin:8px 0 40px}
+.ytguide h3{font-size:1.45rem;line-height:1.25;margin:.3em 0 .5em}
+.ytguide__media{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#29245c;box-shadow:0 18px 40px rgba(41,36,92,.18)}
+.ytguide__media img,.ytguide__media iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.ytguide__play{position:absolute;inset:0;width:100%;background:none;border:0;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding-bottom:22px}
+.section--lilac .ytguide{margin:48px 0 0}
+@media (max-width:760px){.ytguide{grid-template-columns:1fr;gap:18px}}
+.ytguide__play{color:var(--navy);background:linear-gradient(to top,rgba(20,17,50,.55) 0%,rgba(20,17,50,0) 35%)}
+.ytguide .vcard__cta{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--navy);padding:6px 18px 6px 6px;font-size:14px;font-weight:700;border-radius:999px;box-shadow:0 6px 18px rgba(20,17,50,.25)}
+.ytguide .vcard__icon{position:static;transform:none;width:34px;height:34px;box-shadow:none}
+.ytguide .vcard__icon svg{width:14px;height:14px;margin-left:2px}
+.ytguide__play:hover .vcard__icon{transform:scale(1.08)}
