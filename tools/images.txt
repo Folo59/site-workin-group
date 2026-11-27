@@ -41,3 +41,15 @@ https://images.unsplash.com/photo-1662611284229-a493dd36f96e?w=1600&q=85 assets/
 https://images.unsplash.com/photo-1722004961070-498400df0ab9?w=1600&q=85 assets/social/src/qc-charlevoix.jpg
 https://images.unsplash.com/photo-1558567612-559ce068ba31?w=1600&q=85 assets/social/src/qc-vieux-port-patin.jpg
 https://images.unsplash.com/photo-1613392720953-19002a0f661a?auto=format&fit=crop&w=1600&q=85 assets/social/src/arriver-en-hiver.jpg
+https://assets.mixkit.co/videos/28787/28787-1080.mp4 assets/social/src/tmp/mk-28787-1080.mp4
+https://assets.mixkit.co/videos/28787/28787-720.mp4 assets/social/src/tmp/mk-28787-720.mp4
+https://assets.mixkit.co/videos/45488/45488-1080.mp4 assets/social/src/tmp/mk-45488-1080.mp4
+https://assets.mixkit.co/videos/45488/45488-720.mp4 assets/social/src/tmp/mk-45488-720.mp4
+https://assets.mixkit.co/videos/2741/2741-1080.mp4 assets/social/src/tmp/mk-2741-1080.mp4
+https://assets.mixkit.co/videos/2741/2741-720.mp4 assets/social/src/tmp/mk-2741-720.mp4
+https://assets.mixkit.co/videos/23011/23011-1080.mp4 assets/social/src/tmp/mk-23011-1080.mp4
+https://assets.mixkit.co/videos/23011/23011-720.mp4 assets/social/src/tmp/mk-23011-720.mp4
+https://assets.mixkit.co/videos/52447/52447-1080.mp4 assets/social/src/tmp/mk-52447-1080.mp4
+https://assets.mixkit.co/videos/52447/52447-720.mp4 assets/social/src/tmp/mk-52447-720.mp4
+https://assets.mixkit.co/videos/23174/23174-1080.mp4 assets/social/src/tmp/mk-23174-1080.mp4
+https://assets.mixkit.co/videos/23174/23174-720.mp4 assets/social/src/tmp/mk-23174-720.mp4
